@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>BetterHealth — Precision brain and mental health, physician-led</title>
+<meta name="description" content="Physician-led assessment that identifies what is shaping your brain and mental health, ranks the modifiable drivers, and turns them into one measured clinical plan.">
+<meta property="og:title" content="BetterHealth — Precision brain and mental health">
+<meta property="og:description" content="What shapes your brain shapes your health. One integrated assessment, a ranked working model, and a plan that states in advance what should change.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="de">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MedicalBusiness","name":"BetterHealth","medicalSpecialty":"Psychiatric","description":"Physician-led precision brain and mental health assessment and longitudinal care.","address":{"@type":"PostalAddress","addressLocality":"Aarau","addressCountry":"CH"},"availableLanguage":["en","de"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   BetterHealth — Luxury / Editorial
+   Alabaster F9F8F6 · Charcoal 1A1A1A · Taupe EBE5DE · Warm grey 6C6863
+   Gold D4AF37 used only as accent. Playfair Display + Inter.
+   Radius 0. 1px lines. Slow, cinematic motion.
+   =========================================================== */
+:root{
+  --ink:#1A1A1A; --ink-2:#1A1A1A; --ink-3:#242424;
+  --paper:#F9F8F6; --paper-2:#EBE5DE; --white:#F9F8F6;
+  --gold:#D4AF37; --gold-soft:rgba(212,175,55,.14);
+  --bronze:#D4AF37; --bronze-2:#D4AF37; --bronze-soft:rgba(212,175,55,.12);
+  --signal:#D4AF37;
+  --on-ink:#F9F8F6; --on-ink-muted:rgba(235,229,222,.72);
+  --on-paper:#1A1A1A; --on-paper-muted:#6C6863;
+  --line-ink:rgba(249,248,246,.18); --line-paper:rgba(26,26,26,.14);
+  --rule:rgba(26,26,26,.9);
+  --sans:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --disp:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --shell:1600px; --gut:clamp(32px,6vw,64px);
+  --sec:clamp(80px,11vw,128px);
+  --r:0px;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --sh-card:0 2px 8px rgba(0,0,0,.02);
+  --sh-card-h:0 8px 24px rgba(0,0,0,.06);
+  --sh-btn:0 4px 16px rgba(0,0,0,.15);
+  --sh-btn-h:0 8px 24px rgba(0,0,0,.25);
+  --sh-img:0 8px 32px rgba(0,0,0,.12);
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--on-paper);font-family:var(--sans);
+  font-size:17px;font-weight:400;line-height:1.625;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (min-width:900px){body{font-size:18px}}
+a{color:inherit}
+:focus-visible{outline:none;box-shadow:0 0 0 1px var(--gold)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+/* paper grain + editorial gridlines */
+.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.02;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.gridlines{position:fixed;inset:0;z-index:49;pointer-events:none;display:none}
+.gridlines i{position:absolute;top:0;bottom:0;width:1px;background:rgba(128,124,118,.13)}
+@media (min-width:1100px){.gridlines{display:block}}
+
+/* ---------- typography ---------- */
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:500;letter-spacing:-.025em;line-height:1.12}
+h1{font-size:clamp(2.35rem,4.6vw,3.9rem);line-height:1.04;letter-spacing:-.035em;font-weight:500}
+h2{font-size:clamp(1.75rem,3.1vw,2.6rem);line-height:1.1;letter-spacing:-.03em;font-weight:500}
+h3{font-family:var(--sans);font-size:1.0625rem;font-weight:500;letter-spacing:0;line-height:1.45}
+h1 em,h2 em{font-style:normal;color:inherit}
+p{margin:0 0 1.1em}
+p:last-child{margin-bottom:0}
+.lede{font-size:clamp(1.0625rem,1.3vw,1.1875rem);line-height:1.625;max-width:34rem}
+.col{max-width:36rem}
+.tag{font-family:var(--mono);font-size:.6875rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;line-height:1;margin:0;color:var(--on-paper-muted)}
+.num{font-family:var(--mono);font-size:.6875rem;font-weight:500;letter-spacing:.1em;line-height:1;
+  color:var(--on-paper-muted);font-variant-numeric:tabular-nums}
+.on-ink .num,.on-ink-2 .num{color:var(--on-ink-muted)}
+.dim{color:var(--on-paper-muted)}
+.on-ink .dim,.on-ink-2 .dim{color:var(--on-ink-muted)}
+
+/* ---------- surfaces ---------- */
+.on-ink,.on-ink-2{background:var(--ink);color:var(--on-ink)}
+.on-paper{background:var(--paper);color:var(--on-paper)}
+.on-paper-2{background:var(--paper-2);color:var(--on-paper)}
+.shell{max-width:var(--shell);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut);position:relative;z-index:1}
+section{padding-block:var(--sec);position:relative}
+
+/* section rail: decorative line, overline, index */
+.rail{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  border-top:1px solid var(--line-paper);padding-top:22px;margin-bottom:clamp(56px,7vw,104px)}
+.on-ink .rail,.on-ink-2 .rail{border-top-color:var(--line-ink)}
+.rail .tag{display:flex;align-items:center;gap:16px}
+.rail .tag::before{content:"";width:2rem;height:1px;background:var(--gold)}
+@media (min-width:768px){.rail .tag::before{width:3rem}}
+.on-ink .rail .tag,.on-ink-2 .rail .tag{color:var(--on-ink-muted)}
+
+.split{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,96px);align-items:start;
+  margin-bottom:clamp(48px,6vw,80px)}
+.split h2{max-width:14ch}
+@media (max-width:900px){.split{grid-template-columns:1fr;gap:32px}.split h2{max-width:none}}
+
+/* ---------- buttons ---------- */
+.btn{position:isolate;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  font-family:var(--mono);font-size:.6875rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;min-height:48px;padding:14px 32px;border-radius:0;
+  border:1px solid transparent;text-align:center;line-height:1.3;overflow:hidden;
+  transition:background-color .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease)}
+.btn-primary{background:var(--ink);color:#FFFFFF;border-color:var(--ink);box-shadow:var(--sh-btn)}
+.btn-primary{isolation:isolate}
+.btn-primary::before{content:"";position:absolute;inset:0;background:var(--gold);z-index:-1;
+  transform:translateX(-100%);transition:transform .5s var(--ease)}
+.btn-primary:hover{box-shadow:var(--sh-btn-h)}
+.btn-primary:hover::before{transform:translateX(0)}
+.btn-primary > *{position:relative;z-index:1}
+.btn-primary{z-index:0}
+.btn-primary[disabled]{opacity:.5;pointer-events:none}
+.btn-ghost{background:transparent;color:var(--on-paper);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.on-ink .btn-primary,.on-ink-2 .btn-primary{box-shadow:none;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.on-ink .btn-primary:hover,.on-ink-2 .btn-primary:hover{box-shadow:none;color:var(--ink)}
+.on-ink .btn-ghost,.on-ink-2 .btn-ghost{color:var(--on-ink);border-color:rgba(249,248,246,.5)}
+.on-ink .btn-ghost:hover,.on-ink-2 .btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn-row{display:flex;flex-wrap:wrap;gap:16px;align-items:stretch}
+@media (max-width:620px){.btn-row{flex-direction:column;align-items:stretch}
+  .btn-row .btn{width:100%}}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(249,248,246,.92);color:var(--on-paper);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-paper)}
+.hdr-in{display:flex;align-items:center;gap:24px;height:76px;max-width:var(--shell);margin:0 auto;padding:0 var(--gut)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;
+  font-family:var(--disp);font-weight:600;letter-spacing:.14em;font-size:.8125rem;
+  text-transform:uppercase;white-space:nowrap}
+.brand svg{display:block;flex:none}
+.nav{display:flex;align-items:center;gap:0;margin-left:auto}
+.nav a{text-decoration:none;font-family:var(--mono);font-size:.6875rem;font-weight:400;letter-spacing:.08em;
+  text-transform:uppercase;padding:10px 16px;color:var(--on-paper-muted);position:relative;transition:color .5s var(--ease)}
+.nav a:hover{color:var(--gold)}
+.nav a.on{color:var(--on-paper)}
+.nav a.on::after{content:"";position:absolute;left:16px;right:16px;bottom:4px;height:1px;background:var(--gold)}
+.hdr-tools{display:flex;align-items:center;gap:18px;margin-left:18px}
+.lang{display:flex;border:1px solid var(--line-paper)}
+.lang button{font-family:var(--mono);font-size:.625rem;font-weight:500;letter-spacing:.08em;background:transparent;
+  color:var(--on-paper-muted);border:0;padding:10px 12px;cursor:pointer;min-height:36px;transition:.5s var(--ease)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.hdr .btn{min-height:44px;padding:12px 24px;font-size:.625rem}
+.burger{display:none;width:48px;height:48px;margin-left:auto;background:transparent;
+  border:1px solid var(--line-paper);cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1px;background:var(--on-paper);position:relative;transition:.5s var(--ease)}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1px;background:var(--on-paper);transition:.5s var(--ease)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+.drawer{position:fixed;inset:76px 0 0;z-index:55;background:var(--paper);color:var(--on-paper);
+  padding:32px var(--gut) 48px;display:none;flex-direction:column;overflow-y:auto}
+.drawer.open{display:flex}
+.drawer a:not(.btn){text-decoration:none;font-family:var(--disp);font-size:1.25rem;font-weight:500;
+  letter-spacing:-.022em;padding:18px 0;border-bottom:1px solid var(--line-paper);transition:color .5s var(--ease)}
+.drawer a:not(.btn):hover{color:var(--gold)}
+.drawer .btn{margin-top:32px}
+.drawer-meta{margin-top:32px}
+@media (max-width:1100px){.nav,.hdr-tools{display:none}.burger{display:flex}body.locked{overflow:hidden}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,8vw,112px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:end;position:relative;z-index:1}
+.hero .tag{color:var(--gold);display:flex;align-items:center;gap:16px}
+.hero .tag::before{content:"";width:2rem;height:1px;background:var(--gold)}
+@media (min-width:768px){.hero .tag::before{width:3rem}}
+.hero h1{margin:32px 0 32px;max-width:11ch}
+.hero .lede{color:var(--on-ink-muted)}
+.hero .btn-row{margin-top:44px}
+.hero-note{margin-top:44px;padding-top:22px;border-top:1px solid var(--line-ink);
+  font-family:var(--sans);font-size:.625rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(235,229,222,.5);line-height:2}
+.vlabel{display:none}
+@media (min-width:1280px){
+  .vlabel{display:block;position:absolute;right:calc(var(--gut) * -0.2);top:0;
+    writing-mode:vertical-rl;font-family:var(--sans);font-size:.625rem;letter-spacing:.3em;
+    text-transform:uppercase;color:rgba(235,229,222,.4)}
+}
+
+/* system map */
+.map{position:relative}
+.map-frame{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:1px;row-gap:1px;
+  background:var(--line-ink)}
+.map-frame::before,.map-frame::after{display:none}
+.node{position:relative;z-index:2;text-align:left;cursor:pointer;background:var(--ink);
+  border:0;color:var(--on-ink);font-family:inherit;padding:32px 26px;
+  transition:background-color .7s var(--ease)}
+.node:hover{background:#242424}
+.node[aria-pressed="true"]{background:#242424}
+.node[aria-pressed="true"] h3{color:var(--gold)}
+.node h3{font-family:var(--sans);font-size:.6875rem;font-weight:500;letter-spacing:.28em;
+  text-transform:uppercase;transition:color .5s var(--ease)}
+.node p{margin:10px 0 0;font-size:.8125rem;line-height:1.625;color:var(--on-ink-muted)}
+.node .num{display:block;margin-bottom:16px}
+.map-core{grid-column:1/-1;order:-1;background:var(--ink);padding:26px;text-align:center;
+  box-shadow:inset 0 0 0 1px rgba(212,175,55,.35)}
+.map-core b{display:block;font-family:var(--mono);font-size:.875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.map-core span{display:block;font-family:var(--sans);font-size:.625rem;letter-spacing:.28em;
+  text-transform:uppercase;margin-top:10px;color:var(--on-ink-muted)}
+.map-read{margin-top:24px;border-top:1px solid var(--line-ink);padding-top:20px;font-size:.875rem;
+  line-height:1.625;color:var(--on-ink-muted);min-height:3.4em}
+.map-read b{color:var(--paper);font-weight:500}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:56px;align-items:start}}
+
+/* ---------- line-led modules ---------- */
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 48px;margin:0;padding:0}
+.rules.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rules > li,.rules > div{list-style:none;border-top:1px solid var(--line-paper);padding:28px 0 40px;
+  transition:background-color .7s var(--ease)}
+.on-ink .rules > li,.on-ink .rules > div,.on-ink-2 .rules > li,.on-ink-2 .rules > div{border-top-color:var(--line-ink)}
+.rules .num{display:block;margin-bottom:20px}
+.rules h3{margin:0 0 12px;font-family:var(--disp);font-size:1.0625rem;font-weight:600;letter-spacing:-.012em;line-height:1.4}
+.rules p{margin:0;font-size:.9375rem;line-height:1.625;color:var(--on-paper-muted)}
+.on-ink .rules p,.on-ink-2 .rules p{color:var(--on-ink-muted)}
+@media (max-width:900px){.rules,.rules.four{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}}
+@media (max-width:560px){.rules,.rules.four{grid-template-columns:1fr}.rules > li,.rules > div{padding-bottom:28px}}
+
+/* ---------- process sequence ---------- */
+.seq{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 32px;margin:0;padding:0;list-style:none}
+.seq li{border-top:1px solid var(--line-ink);padding:24px 0 32px}
+.seq .num{display:block;margin-bottom:18px}
+.seq h3{font-family:var(--disp);font-size:1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
+.seq p{margin:0;font-size:.8125rem;line-height:1.625;color:var(--on-ink-muted)}
+.seq-note{margin:28px 0 0;font-size:.8125rem;color:var(--on-ink-muted)}
+@media (max-width:1000px){.seq{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:620px){.seq{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- evidence levels ---------- */
+.levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 40px;margin:0 0 clamp(36px,5vw,56px);padding:0}
+.levels div{border-top:1px solid var(--ink);padding:24px 0 0;list-style:none}
+.levels div.l1{border-top:4px solid var(--gold)}
+.levels div.l3,.levels div.l4{border-top-color:var(--line-paper)}
+.levels h3{font-family:var(--mono);font-size:.6875rem;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:14px}
+.levels p{margin:0;font-size:.8125rem;line-height:1.625;color:var(--on-paper-muted)}
+@media (max-width:860px){.levels{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 28px}}
+@media (max-width:480px){.levels{grid-template-columns:1fr}}
+.lvl{display:inline-block;font-family:var(--mono);font-size:.625rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;padding:6px 12px;border:1px solid var(--line-paper);color:var(--on-paper-muted);white-space:nowrap}
+.lvl.l1{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lvl.l2{background:var(--gold-soft);color:#8A7220;border-color:rgba(212,175,55,.5)}
+.lvl.l4{border-style:dashed}
+.on-ink .lvl,.on-ink-2 .lvl{border-color:var(--line-ink);color:var(--on-ink-muted)}
+.on-ink .lvl.l1,.on-ink-2 .lvl.l1{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.on-ink .lvl.l2,.on-ink-2 .lvl.l2{background:transparent;color:var(--gold);border-color:rgba(212,175,55,.6)}
+
+/* ---------- evidence chain ---------- */
+.chain{counter-reset:c;margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px}
+.chain li{counter-increment:c;border-top:1px solid var(--line-paper);padding:20px 0;
+  display:grid;grid-template-columns:44px 1fr;gap:16px;font-size:.9375rem;line-height:1.625}
+.chain li::before{content:counter(c,decimal-leading-zero);font-family:var(--mono);font-size:.6875rem;
+  font-weight:500;letter-spacing:.08em;color:var(--on-paper-muted);padding-top:.5em}
+@media (max-width:760px){.chain{grid-template-columns:1fr}}
+
+/* ---------- citations ---------- */
+.cite{display:inline-block;font-family:var(--sans);font-size:.6em;font-weight:500;vertical-align:super;
+  line-height:1.1;background:none;border:0;padding:2px 4px;margin:0 1px;min-width:18px;color:var(--gold);
+  cursor:pointer;text-decoration:none;transition:color .5s var(--ease)}
+.cite:hover{color:var(--ink)}
+.on-ink .cite:hover,.on-ink-2 .cite:hover{color:var(--paper)}
+.refs{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--ink);padding-top:28px}
+.refs h3{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:24px;color:var(--on-paper-muted)}
+.ref{border-top:1px solid var(--line-paper);padding:20px 0;display:grid;grid-template-columns:44px 1fr;gap:16px;
+  transition:background-color .7s var(--ease)}
+.ref:first-of-type{border-top:0}
+.ref .n{font-family:var(--mono);font-size:.6875rem;font-weight:500;letter-spacing:.08em;color:var(--on-paper-muted);padding-top:.5em}
+.ref p{margin:0 0 8px;font-size:.875rem;line-height:1.625}
+.ref .meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-family:var(--mono);
+  font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-paper-muted)}
+.ref a{color:var(--gold)}
+.ref[data-hit="1"]{background:var(--gold-soft)}
+
+/* ---------- accordions ---------- */
+.acc{border-top:1px solid var(--ink)}
+.on-ink .acc,.on-ink-2 .acc{border-top-color:var(--line-ink)}
+.acc-item{border-bottom:1px solid var(--line-paper)}
+.on-ink .acc-item,.on-ink-2 .acc-item{border-bottom-color:var(--line-ink)}
+.acc-btn{width:100%;display:flex;align-items:center;gap:24px;background:none;border:0;cursor:pointer;
+  font-family:inherit;color:inherit;text-align:left;padding:28px 0;min-height:64px}
+.acc-btn h3,.acc-btn > span:first-child{flex:1;font-family:var(--disp);font-size:1.0625rem;font-weight:500;
+  letter-spacing:-.012em;line-height:1.45;transition:color .5s var(--ease)}
+.acc-btn:hover h3,.acc-btn:hover > span:first-child{color:var(--gold)}
+.acc-btn .lvl{flex:none}
+.acc-btn .sign{flex:none;width:16px;height:16px;position:relative;border:0;
+  transition:transform .5s var(--ease)}
+.acc-btn .sign::before,.acc-btn .sign::after{content:"";position:absolute;background:currentColor;
+  left:0;top:7.5px;width:16px;height:1px;transition:opacity .5s var(--ease)}
+.acc-btn .sign::after{transform:rotate(90deg)}
+.acc-btn[aria-expanded="true"] .sign{transform:rotate(90deg);color:var(--gold)}
+.acc-btn[aria-expanded="true"] .sign::after{opacity:0}
+.acc-panel{padding:0 0 32px;max-width:40rem;animation:fadeIn .7s var(--ease)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.acc-panel dl{margin:0;display:grid;gap:18px}
+.acc-panel dt{font-family:var(--mono);font-size:.625rem;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--on-paper-muted);margin-bottom:6px}
+.on-ink .acc-panel dt,.on-ink-2 .acc-panel dt{color:var(--on-ink-muted)}
+.acc-panel dd{margin:0;font-size:.9375rem;line-height:1.625}
+.acc-panel > p{font-size:.9375rem;line-height:1.625}
+
+/* ---------- pull quote slab ---------- */
+.slab{margin-top:clamp(40px,5vw,64px);background:transparent;color:var(--on-ink);
+  border-top:4px solid var(--gold);padding:40px 0 0;display:grid;
+  grid-template-columns:5fr 7fr;gap:24px 48px;align-items:start}
+.slab::before,.slab::after{display:none}
+.slab .tag{color:var(--gold)}
+.slab p:last-child{margin:0;font-family:var(--disp);font-size:clamp(1.35rem,2.4vw,2rem);
+  font-weight:500;letter-spacing:-.028em;line-height:1.24}
+@media (max-width:760px){.slab{grid-template-columns:1fr;gap:18px}}
+
+/* ---------- who / paths ---------- */
+.paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px}
+.paths article{border-top:1px solid var(--ink);padding:32px 0 44px;transition:background-color .7s var(--ease)}
+.paths h3{font-family:var(--disp);font-size:clamp(1.125rem,1.6vw,1.375rem);font-weight:600;letter-spacing:-.018em;line-height:1.3;margin-bottom:14px}
+.paths p{margin:0;font-size:.9375rem;line-height:1.625;color:var(--on-paper-muted)}
+.paths .fit{margin-top:18px;padding-top:18px;border-top:1px solid var(--line-paper);font-size:.875rem;color:var(--on-paper)}
+@media (max-width:760px){.paths{grid-template-columns:1fr}}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:4fr 7fr;gap:clamp(36px,5vw,80px);align-items:start}
+.portrait{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:32px;background:#242424;box-shadow:var(--sh-img),inset 0 0 0 1px rgba(249,248,246,.08)}
+.portrait::before{display:none}
+.portrait span{font-family:var(--sans);font-size:.875rem;line-height:1.7;color:rgba(235,229,222,.45)}
+.creds{margin:36px 0 0;padding:0;list-style:none}
+.creds li{border-top:1px solid var(--line-ink);padding:18px 0;font-size:.9375rem}
+@media (max-width:860px){.about{grid-template-columns:1fr}.portrait{max-width:340px}}
+
+/* ---------- timeline ---------- */
+.time{margin:0;padding:0;list-style:none}
+.time li{border-top:1px solid var(--line-paper);padding:32px 0;display:grid;
+  grid-template-columns:56px 5fr 7fr auto;gap:12px 40px;align-items:baseline;transition:background-color .7s var(--ease)}
+.time .num{padding-top:.4em}
+.time h3{font-family:var(--disp);font-size:1.0625rem;font-weight:600;letter-spacing:-.012em}
+.time p{margin:0;font-size:.9375rem;line-height:1.625;color:var(--on-paper-muted)}
+.time .when{font-family:var(--mono);font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);white-space:nowrap}
+@media (max-width:860px){
+  .time li{grid-template-columns:32px minmax(0,1fr);gap:10px 18px;align-items:start}
+  .time li > .num{grid-column:1;grid-row:1;padding-top:.45em}
+  .time li > h3{grid-column:2;grid-row:1;min-width:0}
+  .time li > p{grid-column:2;grid-row:2;min-width:0}
+  .time li > .when{grid-column:2;grid-row:3;white-space:normal;margin-top:2px}
+}
+
+/* ---------- forms: underline only ---------- */
+.form{background:transparent;border:0;border-top:1px solid var(--ink);padding:40px 0 0}
+.form::before{display:none}
+.f{margin-bottom:28px}
+.f label{display:block;font-family:var(--mono);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:500;margin-bottom:12px;color:var(--on-paper-muted)}
+.f input,.f select,.f textarea{width:100%;font-family:var(--sans);font-size:.9375rem;color:var(--on-paper);
+  background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;
+  padding:12px 0;min-height:48px;transition:border-color .5s var(--ease)}
+.f textarea{resize:vertical;min-height:104px}
+.f input::placeholder,.f textarea::placeholder{font-family:var(--sans);color:var(--on-paper-muted)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--gold);outline:none;box-shadow:none}
+.f .hint{margin:10px 0 0;font-family:var(--sans);font-size:.8125rem;
+  color:var(--on-paper-muted);text-transform:none;letter-spacing:0;font-weight:400}
+.bad{border-color:#8E3B2F!important}
+.check{display:flex;gap:16px;align-items:flex-start;font-size:.8125rem;line-height:1.625;
+  color:var(--on-paper-muted);margin:8px 0 28px;cursor:pointer}
+.check input{width:16px;height:16px;margin:4px 0 0;accent-color:var(--gold);flex:none}
+.msg{margin:0 0 18px;font-size:.875rem;display:none}
+.msg.show{display:block}
+.msg.ok{color:#4A6141}.msg.err{color:#8E3B2F}
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px);align-items:start}
+.facts{margin:44px 0 0}
+.facts div{border-top:1px solid var(--line-ink);padding:18px 0;display:grid;grid-template-columns:5fr 7fr;gap:20px}
+.facts dt{font-family:var(--mono);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:500;color:var(--on-ink-muted)}
+.facts dd{margin:0;font-size:.9375rem}
+.facts a{color:inherit;transition:color .5s var(--ease)}
+.facts a:hover{color:var(--gold)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:6px}}
+.on-ink .form{border-top-color:var(--line-ink)}
+.on-ink .f label{color:var(--on-ink-muted)}
+.on-ink .f input,.on-ink .f textarea{color:var(--on-ink);border-bottom-color:rgba(249,248,246,.4)}
+.on-ink .f input:focus,.on-ink .f textarea:focus{border-color:var(--gold)}
+.on-ink .f .hint,.on-ink .check{color:var(--on-ink-muted)}
+
+/* ---------- interactive tool ---------- */
+.wiz{border:0;border-top:1px solid var(--line-ink);padding:clamp(36px,5vw,64px) 0 0;
+  min-height:420px;display:flex;flex-direction:column;position:relative;background:transparent}
+.wiz::before,.wiz::after{display:none}
+.wiz-bar{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:0;margin-bottom:clamp(36px,4vw,56px)}
+.wiz-bar .tag{color:var(--gold);display:flex;align-items:center;gap:16px}
+.wiz-bar .tag::before{content:"";width:2rem;height:1px;background:var(--gold)}
+.wiz-crumbs{display:flex;flex-wrap:wrap;gap:24px;margin-left:auto}
+.crumb{font-family:var(--sans);font-size:.5625rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+  padding:0 0 6px;border:0;border-bottom:1px solid transparent;color:rgba(235,229,222,.34);transition:.5s var(--ease)}
+.crumb.on{color:var(--gold);border-bottom-color:var(--gold)}
+.crumb.done{color:var(--on-ink-muted)}
+.wiz-step{flex:1}
+.wiz-q{font-family:var(--disp);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:500;letter-spacing:-.03em;
+  line-height:1.12;margin:0 0 18px;max-width:20ch}
+.wiz-sub{margin:0 0 36px;font-size:.9375rem;line-height:1.625;color:var(--on-ink-muted);max-width:34rem}
+.wiz-hint{margin:20px 0 0;font-size:.8125rem;color:var(--on-ink-muted)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card-opt{position:relative;display:block}
+.card-opt input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.card-opt .box{display:flex;flex-direction:column;gap:8px;min-height:84px;justify-content:center;
+  padding:22px 0;border-top:1px solid var(--line-ink);transition:border-color .5s var(--ease),color .5s var(--ease)}
+.card-opt b{font-family:var(--disp);font-size:.9375rem;font-weight:500;letter-spacing:-.008em;line-height:1.4;transition:color .5s var(--ease)}
+.card-opt span.d{font-size:.8125rem;line-height:1.625;color:var(--on-ink-muted)}
+.card-opt input:hover + .box b{color:var(--gold)}
+.card-opt input:focus-visible + .box{border-top-color:var(--gold)}
+.card-opt input:checked + .box{border-top:1px solid var(--gold)}
+.card-opt input:checked + .box b{color:var(--gold)}
+.chipset{display:flex;flex-wrap:wrap;gap:0 28px}
+.chipset .chip{position:relative;display:inline-flex}
+.chipset .chip input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chipset .chip span{display:flex;align-items:center;min-height:48px;padding:12px 0;
+  border-bottom:1px solid transparent;font-size:.9375rem;line-height:1.4;color:var(--on-ink-muted);
+  transition:color .5s var(--ease),border-color .5s var(--ease)}
+.chipset .chip input:hover + span{color:var(--paper)}
+.chipset .chip input:focus-visible + span{border-bottom-color:var(--gold)}
+.chipset .chip input:checked + span{color:var(--gold);font-weight:500;border-bottom-color:var(--gold)}
+.grp{margin-bottom:36px}
+.grp h4{font-family:var(--sans);font-size:.5625rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--on-ink-muted);margin:0 0 16px;font-weight:500}
+.wiz-nav{display:flex;gap:16px;align-items:center;margin-top:clamp(36px,4vw,56px);
+  border-top:1px solid var(--line-ink);padding-top:28px;flex-wrap:wrap}
+.wiz-nav .count{margin-left:auto;font-family:var(--sans);font-size:.5625rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--on-ink-muted)}
+.wiz .f label{color:var(--on-ink-muted)}
+.wiz .f textarea{background:transparent;color:var(--on-ink);border:0;border-bottom:1px solid rgba(249,248,246,.4)}
+.wiz .f textarea:focus{border-color:var(--gold)}
+
+/* result */
+.res-head{margin-bottom:clamp(32px,4vw,48px)}
+.res-head h3{font-family:var(--disp);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:500;
+  letter-spacing:-.03em;line-height:1.12;margin:0 0 18px}
+.res-head p{margin:0;font-size:.9375rem;line-height:1.625;color:var(--on-ink-muted);max-width:34rem}
+.smap{position:relative;display:grid;grid-template-columns:5fr 4fr 5fr;gap:0 32px;align-items:start;
+  margin:clamp(32px,4vw,48px) 0}
+.smap-core{border:0;border-top:4px solid var(--gold);padding:24px 0 0;text-align:left}
+.smap-core::before{display:none}
+.smap-core .from{font-family:var(--sans);font-size:.5625rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--on-ink-muted);font-weight:500}
+.smap-core .to{font-family:var(--disp);font-size:1.25rem;font-weight:500;letter-spacing:-.02em;color:var(--gold);
+  margin-top:12px;line-height:1.2}
+.smap-core .arrow{display:none}
+.smap-side{display:grid;gap:0}
+.snode{border:0;border-top:1px solid var(--line-ink);padding:24px 0}
+.snode.p1{border-top-color:rgba(249,248,246,.5)}
+.snode b{display:block;font-family:var(--disp);font-size:1.0625rem;font-weight:600;letter-spacing:-.012em;line-height:1.35}
+.snode span{display:block;font-family:var(--sans);font-size:.5625rem;letter-spacing:.28em;text-transform:uppercase;
+  margin-top:12px;color:var(--on-ink-muted);font-weight:500}
+.snode.p1 span{color:var(--gold)}
+@media (max-width:820px){.smap{grid-template-columns:1fr;gap:0}}
+.res-block{border-top:1px solid var(--line-ink);padding:36px 0}
+.res-block h4{font-family:var(--sans);font-size:.5625rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--on-ink-muted);margin:0 0 24px;font-weight:500;display:flex;align-items:center;gap:16px}
+.res-block h4::before{content:"";width:2rem;height:1px;background:var(--gold)}
+.obs{margin:0 0 20px}
+.obs:last-child{margin-bottom:0}
+.obs b{display:block;font-family:var(--disp);font-size:1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.obs p{margin:0;font-size:.9375rem;line-height:1.625;color:var(--on-ink-muted);max-width:40rem}
+.unk{display:grid;grid-template-columns:48px 1fr;gap:16px;border-top:1px solid var(--line-ink);padding:22px 0}
+.unk:first-of-type{border-top:0;padding-top:0}
+.unk .n{font-family:var(--sans);font-size:.5625rem;font-weight:500;letter-spacing:.28em;color:var(--gold);padding-top:.5em}
+.unk p{margin:0;font-size:.9375rem;font-weight:400;line-height:1.6;max-width:40rem}
+.loop{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0 24px;margin:0;padding:0;list-style:none}
+.loop li{border-top:1px solid var(--line-ink);padding:18px 0 0}
+.loop .n{font-family:var(--sans);font-size:.5625rem;font-weight:500;letter-spacing:.28em;color:var(--on-ink-muted)}
+.loop b{display:block;font-family:var(--disp);font-size:.9375rem;font-weight:600;margin:12px 0 8px}
+.loop p{margin:0;font-size:.78rem;line-height:1.625;color:var(--on-ink-muted)}
+@media (max-width:900px){.loop{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+@media (max-width:520px){.loop{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.mcard{border:0;border-top:1px solid var(--line-ink);padding:22px 0;background:transparent}
+.mcard b{display:block;font-family:var(--disp);font-size:.9375rem;font-weight:600;margin-bottom:10px}
+.mcard p{margin:0;font-size:.8125rem;line-height:1.625;color:var(--on-ink-muted)}
+@media (max-width:820px){.mcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.mcards{grid-template-columns:1fr}}
+.cyc{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:0;padding:0;list-style:none}
+.cyc li{border:0;border-bottom:1px solid var(--line-ink);padding:8px 0;font-family:var(--sans);font-size:.5625rem;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--on-ink-muted)}
+.cyc li.back{color:var(--gold);border-bottom-color:var(--gold)}
+.cyc .sep{border:0;color:var(--gold)}
+.res-end{margin-top:36px;border-top:1px solid var(--line-ink);padding-top:36px}
+.res-end h4{font-family:var(--disp);font-size:clamp(1.125rem,1.8vw,1.5rem);font-weight:500;
+  letter-spacing:-.022em;margin:0 0 14px;color:var(--on-ink);display:block}
+.res-end h4::before{display:none}
+.res-end p{margin:0 0 28px;font-size:.9375rem;line-height:1.625;color:var(--on-ink-muted);max-width:40rem}
+.res-fine{margin-top:32px;padding:0;border:0;border-top:1px solid var(--line-ink);padding-top:20px;
+  font-size:.75rem;line-height:1.7;color:rgba(235,229,222,.5);max-width:44rem}
+.urgent{border:0;border-top:4px solid var(--gold);padding:32px 0 0;background:transparent}
+.urgent h3{margin:0 0 16px;font-family:var(--disp);font-size:clamp(1.125rem,1.8vw,1.5rem);font-weight:500;letter-spacing:-.022em;color:var(--gold)}
+.urgent p{font-size:.9375rem;line-height:1.7;max-width:40rem;color:var(--on-ink-muted)}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cards,.cards.two{grid-template-columns:1fr}.chipset{gap:0 20px}}
+
+/* ---------- footer ---------- */
+.foot{padding-block:clamp(56px,7vw,96px)}
+.foot-top{display:flex;flex-wrap:wrap;gap:24px 64px;align-items:center;padding-bottom:36px;border-bottom:1px solid var(--line-ink)}
+.foot-line{margin:0;max-width:36rem;font-size:.875rem;color:var(--on-ink-muted)}
+.foot-cols{display:grid;grid-template-columns:4fr 8fr;gap:36px 64px;padding:36px 0}
+.foot-cols nav{display:flex;flex-direction:column;gap:16px}
+.foot-cols nav a{text-decoration:none;font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:400;color:var(--on-ink-muted);transition:color .5s var(--ease)}
+.foot-cols nav a:hover{color:var(--gold)}
+.disclaimer{margin:0;font-size:.8125rem;line-height:1.7;max-width:44rem}
+.foot-legal{margin:0;padding-top:28px;border-top:1px solid var(--line-ink);font-family:var(--mono);
+  font-size:.625rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-ink-muted)}
+@media (max-width:760px){.foot-cols{grid-template-columns:1fr}}
+.skip{position:absolute;left:-9999px;top:8px;z-index:99}
+.skip:focus{left:16px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+<div class="gridlines" aria-hidden="true"><i style="left:var(--gut)"></i><i style="left:33.333%"></i><i style="left:66.666%"></i><i style="right:var(--gut)"></i></div>
+<a class="btn btn-primary skip" href="#main" data-en="Skip to content" data-de="Zum Inhalt springen">Skip to content</a>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#top"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><rect x="9" y="1.2" width="11" height="11" transform="rotate(45 9 1.2)" fill="none" stroke="currentColor" stroke-width="1"/><rect x="6.8" y="6.8" width="4.4" height="4.4" fill="#D4AF37"/></svg>BetterHealth</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#model" data-en="Approach" data-de="Ansatz">Approach</a>
+      <a href="#science" data-en="Science" data-de="Wissenschaft">Science</a>
+      <a href="#measure" data-en="Assessment" data-de="Abklärung">Assessment</a>
+      <a href="#roadmap" data-en="Roadmap" data-de="Roadmap">Roadmap</a>
+      <a href="#about" data-en="About" data-de="Über uns">About</a>
+      <a href="#faq" data-en="FAQ" data-de="FAQ">FAQ</a>
+    </nav>
+    <div class="hdr-tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      </div>
+      <a class="btn btn-primary" href="#contact" data-en="Request consultation" data-de="Termin anfragen">Request consultation</a>
+    </div>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#problem" data-en="The problem" data-de="Das Problem">The problem</a>
+  <a href="#model" data-en="Approach" data-de="Ansatz">Approach</a>
+  <a href="#science" data-en="Science and evidence" data-de="Wissenschaft und Evidenz">Science and evidence</a>
+  <a href="#measure" data-en="Assessment" data-de="Abklärung">Assessment</a>
+  <a href="#roadmap" data-en="Your preliminary roadmap" data-de="Ihre vorläufige Roadmap">Your preliminary roadmap</a>
+  <a href="#who" data-en="Who it is for" data-de="Für wen">Who it is for</a>
+  <a href="#about" data-en="About" data-de="Über uns">About</a>
+  <a href="#process" data-en="How it works" data-de="Ablauf">How it works</a>
+  <a href="#faq" data-en="FAQ" data-de="FAQ">FAQ</a>
+  <a class="btn btn-primary" href="#contact" data-en="Request a confidential consultation" data-de="Vertrauliches Erstgespräch anfragen">Request a confidential consultation</a>
+  <div class="drawer-meta">
+    <div class="lang" role="group" aria-label="Language" style="display:inline-flex">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+</div>
+
+<main id="main"><span id="top"></span>
+
+<!-- HERO -->
+<section class="hero on-ink">
+  <div class="shell">
+    <div class="hero-grid">
+      <div>
+        <p class="tag" style="color:var(--signal)" data-en="Physician-led precision care" data-de="Ärztlich geführte Präzisionsmedizin">Physician-led precision care</p>
+        <h1 data-en="What shapes your brain shapes your health" data-de="Was Ihr Gehirn prägt, prägt Ihre Gesundheit">What shapes your brain shapes your health</h1>
+        <p class="lede" data-en="We identify and measure the biological, psychological, behavioural and environmental factors shaping brain and cognitive function, then target the modifiable ones to improve mental health, performance and long-term brain health." data-de="Wir identifizieren und messen die biologischen, psychologischen, verhaltensbezogenen und umweltbezogenen Faktoren, die Hirn- und kognitive Funktion prägen, und setzen dort an, wo Veränderung möglich ist: für psychische Gesundheit, Leistungsfähigkeit und langfristige Hirngesundheit.">We identify and measure the biological, psychological, behavioural and environmental factors shaping brain and cognitive function, then target the modifiable ones to improve mental health, performance and long-term brain health.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#contact" data-en="Request a confidential consultation" data-de="Vertrauliches Erstgespräch anfragen">Request a confidential consultation</a>
+          <a class="btn btn-ghost" href="#roadmap" data-en="Try the interactive tool" data-de="Das interaktive Tool testen">Try the interactive tool</a>
+        </div>
+        <p class="hero-note" data-en="Psychiatry and psychotherapy, neuroscience, systems biology, measurement-based care." data-de="Psychiatrie und Psychotherapie, Neurowissenschaft, Systembiologie, messbasierte Versorgung.">Psychiatry and psychotherapy, neuroscience, systems biology, measurement-based care.</p>
+      </div>
+      <div class="map">
+        <div class="map-frame">
+          <button class="node" type="button" aria-pressed="false" data-read-en="<b>Brain.</b> Cognition, large-scale networks, and the predictions the brain uses to regulate the body." data-read-de="<b>Gehirn.</b> Kognition, grossräumige Netzwerke und die Vorhersagen, mit denen das Gehirn den Körper reguliert.">
+            <span class="num">01</span><h3 data-en="Brain" data-de="Gehirn">Brain</h3>
+            <p data-en="Cognition, networks, predictions" data-de="Kognition, Netzwerke, Vorhersagen">Cognition, networks, predictions</p>
+          </button>
+          <button class="node" type="button" aria-pressed="false" data-read-en="<b>Body.</b> Metabolic, immune, endocrine and cardiovascular physiology, and the allostatic load carried by prolonged demand." data-read-de="<b>Körper.</b> Metabolische, immunologische, endokrine und kardiovaskuläre Physiologie sowie die allostatische Last anhaltender Belastung.">
+            <span class="num">02</span><h3 data-en="Body" data-de="Körper">Body</h3>
+            <p data-en="Metabolic, immune, allostasis" data-de="Metabolisch, immunologisch, Allostase">Metabolic, immune, allostasis</p>
+          </button>
+          <button class="node" type="button" aria-pressed="false" data-read-en="<b>Behaviour.</b> Sleep, activity, recovery, routines and the patterns that maintain a state day after day." data-read-de="<b>Verhalten.</b> Schlaf, Aktivität, Erholung, Routinen und die Muster, die einen Zustand Tag für Tag aufrechterhalten.">
+            <span class="num">03</span><h3 data-en="Behaviour" data-de="Verhalten">Behaviour</h3>
+            <p data-en="Sleep, activity, recovery, routine" data-de="Schlaf, Aktivität, Erholung, Routine">Sleep, activity, recovery, routine</p>
+          </button>
+          <button class="node" type="button" aria-pressed="false" data-read-en="<b>Environment.</b> Demand, control, relationships and context, the conditions your regulation has to work inside." data-read-de="<b>Umwelt.</b> Anforderung, Kontrolle, Beziehungen und Kontext, also die Bedingungen, unter denen Ihre Regulation arbeiten muss.">
+            <span class="num">04</span><h3 data-en="Environment" data-de="Umwelt">Environment</h3>
+            <p data-en="Demand, control, context" data-de="Anforderung, Kontrolle, Kontext">Demand, control, context</p>
+          </button>
+          <div class="map-core">
+            <b data-en="You" data-de="Sie">You</b>
+            <span data-en="one regulated system" data-de="ein reguliertes System">one regulated system</span>
+          </div>
+        </div>
+        <p class="map-read" id="mapRead" data-en="These four layers regulate each other continuously. Select one to see what we look at there." data-de="Diese vier Ebenen regulieren sich fortlaufend gegenseitig. Wählen Sie eine, um zu sehen, was wir dort betrachten.">These four layers regulate each other continuously. Select one to see what we look at there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 PROBLEM -->
+<section class="on-paper" id="problem">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Why this is hard" data-de="Warum das schwierig ist">Why this is hard</p><span class="num">01</span></div>
+    <div class="split">
+      <div><h2 data-en="Advanced testing is available. Turning those results into a working, tailored plan is rare." data-de="Fortgeschrittene Diagnostik ist verfügbar. Daraus einen funktionierenden, individuellen Plan zu machen, ist selten.">Advanced testing is available. Turning those results into a working, tailored plan is rare.</h2></div>
+      <div class="col dim">
+        <p data-en="Bloodwork, brain imaging, cognitive testing, physiology, psychology, behaviour and lifestyle are often assessed and treated separately. The individual assessments may be high quality, but what is often missing is the structured process that connects the findings, determines what matters, translates them into a plan, and measures whether that plan worked." data-de="Blutwerte, Bildgebung, kognitive Testung, Physiologie, Psychologie, Verhalten und Lebensstil werden häufig getrennt erhoben und getrennt behandelt. Die einzelnen Abklärungen können von hoher Qualität sein, doch es fehlt häufig der strukturierte Prozess, der die Befunde verbindet, bestimmt, was relevant ist, sie in einen Plan überführt und misst, ob dieser Plan gewirkt hat.">Bloodwork, brain imaging, cognitive testing, physiology, psychology, behaviour and lifestyle are often assessed and treated separately. The individual assessments may be high quality, but what is often missing is the structured process that connects the findings, determines what matters, translates them into a plan, and measures whether that plan worked.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><span class="num">01</span><h3 data-en="Fragmented information" data-de="Fragmentierte Information">Fragmented information</h3>
+        <p data-en="Different tests and specialists produce isolated findings. Without a shared model it is difficult to see how the pieces interact or which findings actually matter." data-de="Unterschiedliche Tests und Fachpersonen liefern isolierte Befunde. Ohne gemeinsames Modell lässt sich schwer erkennen, wie die Teile zusammenwirken und welche Befunde tatsächlich relevant sind.">Different tests and specialists produce isolated findings. Without a shared model it is difficult to see how the pieces interact or which findings actually matter.</p></li>
+      <li><span class="num">02</span><h3 data-en="Complex, interacting drivers" data-de="Komplexe, zusammenwirkende Faktoren">Complex, interacting drivers</h3>
+        <p data-en="Mental and brain health emerge from interactions between biology, psychology, behaviour and environment. Looking at one system in isolation can miss the mechanisms maintaining the current state." data-de="Psychische und Hirngesundheit entstehen aus dem Zusammenspiel von Biologie, Psychologie, Verhalten und Umgebung. Ein isoliert betrachtetes System verfehlt oft die Mechanismen, die den aktuellen Zustand aufrechterhalten.">Mental and brain health emerge from interactions between biology, psychology, behaviour and environment. Looking at one system in isolation can miss the mechanisms maintaining the current state.</p></li>
+      <li><span class="num">03</span><h3 data-en="Weak continuity" data-de="Fehlende Kontinuität">Weak continuity</h3>
+        <p data-en="An assessment is only a starting point. What changes over time is rarely compared against what was expected, so plans are continued or abandoned on impression rather than on evidence." data-de="Eine Abklärung ist nur der Ausgangspunkt. Was sich über die Zeit verändert, wird selten mit dem Erwarteten verglichen, sodass Pläne nach Eindruck statt nach Evidenz fortgeführt oder verworfen werden.">An assessment is only a starting point. What changes over time is rarely compared against what was expected, so plans are continued or abandoned on impression rather than on evidence.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 MODEL -->
+<section class="on-ink" id="model">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="The BetterHealth model" data-de="Das BetterHealth-Modell">The BetterHealth model</p><span class="num">02</span></div>
+    <div class="split">
+      <div><h2 data-en="One process, from what is happening to whether it changed" data-de="Ein Prozess, von der Ausgangslage bis zur Frage, ob sich etwas verändert hat">One process, from what is happening to whether it changed</h2></div>
+      <div class="col dim">
+        <p data-en="A diagnosis names a pattern. It leaves open what maintains that pattern in this person, at this point in time. We ask which biological, psychological, behavioural and environmental processes are holding the current state in place, which of them are modifiable, and whether changing them produces the response we predicted." data-de="Eine Diagnose benennt ein Muster. Offen bleibt, was dieses Muster bei dieser Person zu diesem Zeitpunkt aufrechterhält. Wir fragen, welche biologischen, psychologischen, verhaltensbezogenen und umweltbezogenen Prozesse den aktuellen Zustand halten, welche davon veränderbar sind und ob ihre Veränderung die vorhergesagte Reaktion erzeugt.">A diagnosis names a pattern. It leaves open what maintains that pattern in this person, at this point in time. We ask which biological, psychological, behavioural and environmental processes are holding the current state in place, which of them are modifiable, and whether changing them produces the response we predicted.</p>
+      </div>
+    </div>
+    <ol class="seq">
+      <li><span class="num">01</span><h3 data-en="Assess" data-de="Erheben">Assess</h3><p data-en="Clinical picture, physiology, behaviour, context." data-de="Klinisches Bild, Physiologie, Verhalten, Kontext.">Clinical picture, physiology, behaviour, context.</p></li>
+      <li><span class="num">02</span><h3 data-en="Interpret" data-de="Interpretieren">Interpret</h3><p data-en="Findings read against each other, not in isolation." data-de="Befunde werden gegeneinander gelesen, nicht isoliert.">Findings read against each other, not in isolation.</p></li>
+      <li><span class="num">03</span><h3 data-en="Prioritise" data-de="Priorisieren">Prioritise</h3><p data-en="Ranked by likely contribution and modifiability." data-de="Gewichtet nach wahrscheinlichem Beitrag und Veränderbarkeit.">Ranked by likely contribution and modifiability.</p></li>
+      <li><span class="num">04</span><h3 data-en="Intervene" data-de="Intervenieren">Intervene</h3><p data-en="The smallest effective step, with a stated expectation." data-de="Der kleinste wirksame Schritt, mit benannter Erwartung.">The smallest effective step, with a stated expectation.</p></li>
+      <li><span class="num">05</span><h3 data-en="Measure" data-de="Messen">Measure</h3><p data-en="The outcomes that matter for this person." data-de="Die Ergebnisse, die für diese Person zählen.">The outcomes that matter for this person.</p></li>
+      <li><span class="num">06</span><h3 data-en="Update" data-de="Aktualisieren">Update</h3><p data-en="Compare prediction with outcome, revise the model." data-de="Vorhersage mit Ergebnis vergleichen, Modell revidieren.">Compare prediction with outcome, revise the model.</p></li>
+    </ol>
+    <p class="seq-note" data-en="The loop then runs again. Each pass narrows what is still uncertain." data-de="Danach läuft die Schleife erneut. Jeder Durchgang verkleinert das, was noch unklar ist.">The loop then runs again. Each pass narrows what is still uncertain.</p>
+  </div>
+</section>
+
+<!-- 03 SCIENCE -->
+<section class="on-paper" id="science">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="The science behind the approach" data-de="Die Wissenschaft hinter dem Ansatz">The science behind the approach</p><span class="num">03</span></div>
+    <div class="split">
+      <div><h2 data-en="Why a systems model follows from the evidence" data-de="Warum ein Systemmodell aus der Evidenz folgt">Why a systems model follows from the evidence</h2></div>
+      <div class="col dim">
+        <p data-en="Two ideas do most of the work. Allostasis describes how the brain anticipates and regulates the body's needs, and how the cost of sustained regulation accumulates as allostatic load.<button class='cite' data-ref='1'>1</button> Predictive processing describes how the brain constructs perception and bodily feeling from predictions that are corrected by incoming signals, which is why physiological state, expectation and symptom are not separable.<button class='cite' data-ref='2'>2</button>" data-de="Zwei Ideen tragen den grössten Teil. Allostase beschreibt, wie das Gehirn die Bedürfnisse des Körpers antizipiert und reguliert und wie sich die Kosten anhaltender Regulation als allostatische Last anhäufen.<button class='cite' data-ref='1'>1</button> Predictive Processing beschreibt, wie das Gehirn Wahrnehmung und Körpergefühl aus Vorhersagen konstruiert, die durch eingehende Signale korrigiert werden. Deshalb sind physiologischer Zustand, Erwartung und Symptom nicht voneinander zu trennen.<button class='cite' data-ref='2'>2</button>" data-html>Two ideas do most of the work.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:18px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--on-paper-muted)" data-en="The reasoning chain" data-de="Die Argumentationskette">The reasoning chain</h3>
+    <ol class="chain">
+      <li data-en="Psychiatric syndromes are heterogeneous. One study found 1030 distinct symptom profiles among 3703 patients who all carried the same diagnosis.<button class='cite' data-ref='3'>3</button>" data-de="Psychiatrische Syndrome sind heterogen. Eine Untersuchung fand 1030 unterschiedliche Symptomprofile bei 3703 Patientinnen und Patienten mit derselben Diagnose.<button class='cite' data-ref='3'>3</button>" data-html>Psychiatric syndromes are heterogeneous.</li>
+      <li data-en="Similar symptoms can therefore arise from different underlying processes, and the same treatment can be right for one person and wrong for another." data-de="Ähnliche Symptome können daher aus unterschiedlichen zugrunde liegenden Prozessen entstehen, und dieselbe Behandlung kann für eine Person richtig und für eine andere falsch sein.">Similar symptoms can arise from different processes.</li>
+      <li data-en="Brain function depends on interacting neural, autonomic, endocrine, immune, metabolic and cardiovascular systems." data-de="Hirnfunktion hängt von zusammenwirkenden neuronalen, autonomen, endokrinen, immunologischen, metabolischen und kardiovaskulären Systemen ab.">Brain function depends on interacting systems.</li>
+      <li data-en="The brain continuously predicts and regulates physiological requirements, and prolonged regulation carries a measurable cost.<button class='cite' data-ref='1'>1</button>" data-de="Das Gehirn sagt physiologische Anforderungen fortlaufend voraus und reguliert sie, und anhaltende Regulation hat messbare Kosten.<button class='cite' data-ref='1'>1</button>" data-html>The brain predicts and regulates continuously.</li>
+      <li data-en="Biological state influences perception, affect, cognition, learning and behaviour." data-de="Der biologische Zustand beeinflusst Wahrnehmung, Affekt, Kognition, Lernen und Verhalten.">Biological state influences mental function.</li>
+      <li data-en="Psychological experience and behaviour change physiology in return, which is why the causal arrow runs both ways." data-de="Psychisches Erleben und Verhalten verändern ihrerseits die Physiologie, weshalb der kausale Pfeil in beide Richtungen zeigt.">Experience and behaviour change physiology in return.</li>
+      <li data-en="Some of these variables can be measured reliably, and some cannot. Knowing which is which is part of the clinical work." data-de="Manche dieser Variablen lassen sich zuverlässig messen, andere nicht. Zu wissen, welche welche sind, gehört zur klinischen Arbeit.">Some variables can be measured reliably, some cannot.</li>
+      <li data-en="A measurement earns its place only when the result could change a decision." data-de="Eine Messung ist nur dann gerechtfertigt, wenn ihr Ergebnis eine Entscheidung verändern könnte.">A measurement earns its place only when it can change a decision.</li>
+      <li data-en="An intervention should therefore be chosen with a stated expected change, not only with a hoped-for one." data-de="Eine Intervention sollte deshalb mit einer benannten erwarteten Veränderung gewählt werden, nicht nur mit einer erhofften.">Interventions should carry a stated expected change.</li>
+      <li data-en="Systematic re-measurement and adjustment improves outcomes in depression compared with treatment as usual.<button class='cite' data-ref='4'>4</button>" data-de="Systematische Wiedermessung und Anpassung verbessert bei Depression die Ergebnisse gegenüber der üblichen Behandlung.<button class='cite' data-ref='4'>4</button>" data-html>Systematic re-measurement improves outcomes.</li>
+    </ol>
+
+    <div class="refs">
+      <h3 data-en="References" data-de="Referenzen">References</h3>
+      <div class="ref" id="ref-1"><span class="n">01</span><div>
+        <p>McEwen BS. Protective and damaging effects of stress mediators. <i>New England Journal of Medicine</i>. 1998;338(3):171–179.</p>
+        <p class="meta"><span data-en="Narrative review" data-de="Übersichtsarbeit">Narrative review</span> · <a href="https://doi.org/10.1056/NEJM199801153380307" target="_blank" rel="noopener">10.1056/NEJM199801153380307</a></p></div></div>
+      <div class="ref" id="ref-2"><span class="n">02</span><div>
+        <p>Barrett LF, Simmons WK. Interoceptive predictions in the brain. <i>Nature Reviews Neuroscience</i>. 2015;16(7):419–429.</p>
+        <p class="meta"><span data-en="Theoretical framework" data-de="Theoretischer Rahmen">Theoretical framework</span> · <a href="https://doi.org/10.1038/nrn3950" target="_blank" rel="noopener">10.1038/nrn3950</a></p></div></div>
+      <div class="ref" id="ref-3"><span class="n">03</span><div>
+        <p>Fried EI, Nesse RM. Depression is not a consistent syndrome: an investigation of unique symptom patterns in the STAR*D study. <i>Journal of Affective Disorders</i>. 2015;172:96–102.</p>
+        <p class="meta"><span data-en="Secondary analysis of a large clinical trial" data-de="Sekundäranalyse einer grossen klinischen Studie">Secondary analysis of a large clinical trial</span> · <a href="https://doi.org/10.1016/j.jad.2014.10.010" target="_blank" rel="noopener">10.1016/j.jad.2014.10.010</a></p></div></div>
+      <div class="ref" id="ref-4"><span class="n">04</span><div>
+        <p>Guo T, Xiang YT, Xiao L, et al. Measurement-based care versus standard care for major depression: a randomized controlled trial with blind raters. <i>American Journal of Psychiatry</i>. 2015;172(10):1004–1013.</p>
+        <p class="meta"><span data-en="Randomised controlled trial" data-de="Randomisierte kontrollierte Studie">Randomised controlled trial</span> · <a href="https://doi.org/10.1176/appi.ajp.2015.14050652" target="_blank" rel="noopener">10.1176/appi.ajp.2015.14050652</a></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 EVIDENCE LEVELS -->
+<section class="on-paper-2" id="evidence">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Evidence levels" data-de="Evidenzstufen">Evidence levels</p><span class="num">04</span></div>
+    <div class="split">
+      <div><h2 data-en="Not everything we can measure is equally well established" data-de="Nicht alles, was messbar ist, ist gleich gut belegt">Not everything we can measure is equally well established</h2></div>
+      <div class="col dim">
+        <p data-en="We work with the best current scientific evidence, which includes both established methods and newer approaches where the evidence is promising and clinically relevant. For transparency, every method used in your assessment is labelled with where it stands, from established to exploratory." data-de="Wir arbeiten mit der besten aktuell verfügbaren wissenschaftlichen Evidenz, was sowohl etablierte Methoden als auch neuere Ansätze mit vielversprechender und klinisch relevanter Evidenz einschliesst. Aus Gründen der Transparenz wird jede in Ihrer Abklärung eingesetzte Methode danach gekennzeichnet, wo sie steht, von etabliert bis explorativ.">We work with the best current scientific evidence, which includes both established methods and newer approaches where the evidence is promising and clinically relevant. For transparency, every method used in your assessment is labelled with where it stands, from established to exploratory.</p>
+      </div>
+    </div>
+    <div class="levels">
+      <div class="l1"><h3 data-en="Established" data-de="Etabliert">Established</h3><p data-en="Supported by established clinical evidence and standard medical practice where indicated." data-de="Gestützt auf etablierte klinische Evidenz und medizinischen Standard, wo indiziert.">Supported by established clinical evidence and standard medical practice where indicated.</p></div>
+      <div class="l2"><h3 data-en="Conditional" data-de="Bedingt">Conditional</h3><p data-en="Supported in particular populations, indications or circumstances, and applied only where those conditions hold." data-de="Belegt in bestimmten Populationen, Indikationen oder Situationen und nur dort eingesetzt, wo diese Bedingungen zutreffen.">Supported in particular populations, indications or circumstances, and applied only where those conditions hold.</p></div>
+      <div class="l3"><h3 data-en="Emerging" data-de="Aufkommend">Emerging</h3><p data-en="Scientifically promising, evidence still developing, conclusions kept cautious." data-de="Wissenschaftlich vielversprechend, Evidenz noch im Aufbau, Schlussfolgerungen bleiben zurückhaltend.">Scientifically promising, evidence still developing, conclusions kept cautious.</p></div>
+      <div class="l4"><h3 data-en="Exploratory" data-de="Explorativ">Exploratory</h3><p data-en="May generate hypotheses. Not presented with the certainty of established clinical medicine, and never the basis of a plan on its own." data-de="Kann Hypothesen erzeugen. Wird nicht mit der Sicherheit etablierter klinischer Medizin dargestellt und ist nie allein Grundlage eines Plans.">May generate hypotheses. Not presented with the certainty of established clinical medicine, and never the basis of a plan on its own.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WHAT WE MEASURE -->
+<section class="on-paper" id="measure">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="What we measure" data-de="Was wir messen">What we measure</p><span class="num">05</span></div>
+    <div class="split">
+      <div><h2 data-en="Measurement organised around clinical questions, not around equipment" data-de="Messung entlang klinischer Fragen, nicht entlang von Geräten">Measurement organised around clinical questions, not around equipment</h2></div>
+      <div class="col dim">
+        <p data-en="Nobody needs every available marker. Each domain below states what it is meant to clarify, why it could matter, when it would be used, and what would change depending on the result. If a domain cannot pass those four questions in your case, it is not part of your assessment." data-de="Niemand braucht jeden verfügbaren Marker. Jede Domäne unten benennt, was sie klären soll, warum sie relevant sein könnte, wann sie eingesetzt wird und was sich je nach Ergebnis ändert. Besteht eine Domäne diese vier Fragen in Ihrem Fall nicht, ist sie nicht Teil Ihrer Abklärung.">Nobody needs every available marker.</p>
+      </div>
+    </div>
+    <div class="acc" id="measureAcc"></div>
+  </div>
+</section>
+
+<!-- 06 DECISION LOGIC -->
+<section class="on-ink" id="logic">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="How we decide what to test" data-de="Wie wir entscheiden, was getestet wird">How we decide what to test</p><span class="num">06</span></div>
+    <div class="split">
+      <div><h2 data-en="Testing is useful only when it changes the intervention" data-de="Diagnostik ist nur nützlich, wenn sie die Intervention verändert">Testing is useful only when it changes the intervention</h2></div>
+      <div class="col dim">
+        <p data-en="Blanket testing produces large volumes of low-value data, raises incidental findings and false positives, and often increases uncertainty without changing anything. Each proposed measurement passes through four questions before it is ordered." data-de="Flächendeckende Diagnostik erzeugt grosse Mengen wenig aussagekräftiger Daten, erhöht Zufallsbefunde und falsch positive Resultate und vergrössert die Unsicherheit oft, ohne etwas zu verändern. Jede vorgeschlagene Messung durchläuft vier Fragen, bevor sie veranlasst wird.">Blanket testing produces large volumes of low-value data.</p>
+      </div>
+    </div>
+    <ol class="rules four">
+      <li><span class="num">01</span><h3 data-en="Question" data-de="Frage">Question</h3><p data-en="What are we trying to clarify clinically?" data-de="Was wollen wir klinisch klären?">What are we trying to clarify clinically?</p></li>
+      <li><span class="num">02</span><h3 data-en="Uncertainty" data-de="Unsicherheit">Uncertainty</h3><p data-en="Which unknown could change the decision?" data-de="Welche Unbekannte könnte die Entscheidung verändern?">Which unknown could change the decision?</p></li>
+      <li><span class="num">03</span><h3 data-en="Measurement" data-de="Messung">Measurement</h3><p data-en="What test, marker or observation answers that question?" data-de="Welcher Test, Marker oder welche Beobachtung beantwortet diese Frage?">What test, marker or observation answers that question?</p></li>
+      <li><span class="num">04</span><h3 data-en="Action" data-de="Konsequenz">Action</h3><p data-en="What changes if the result is abnormal, normal or unchanged?" data-de="Was ändert sich, wenn das Resultat auffällig, normal oder unverändert ist?">What changes if the result is abnormal, normal or unchanged?</p></li>
+    </ol>
+    <div class="slab">
+      <p class="tag" data-en="Our rule" data-de="Unsere Regel">Our rule</p>
+      <p data-en="If a test cannot plausibly change the decision, it is not part of the roadmap." data-de="Wenn ein Test die Entscheidung nicht plausibel verändern kann, ist er nicht Teil der Roadmap.">If a test cannot plausibly change the decision, it is not part of the roadmap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 DATA TO DECISION -->
+<section class="on-paper" id="decision">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="From data to decision" data-de="Von Daten zur Entscheidung">From data to decision</p><span class="num">07</span></div>
+    <div class="split">
+      <div><h2 data-en="We do not treat every abnormal value. We build one working model." data-de="Wir behandeln nicht jeden auffälligen Wert. Wir bauen ein Arbeitsmodell.">We do not treat every abnormal value. We build one working model.</h2></div>
+      <div class="col dim">
+        <p data-en="Findings are weighed against your symptoms, function, goals, history, current state, risk, constraints and preferences, and against each other. Evidence quality, modifiability, expected benefit, burden and remaining uncertainty all carry weight. The output is a shorter plan, not a longer report." data-de="Befunde werden gegen Ihre Symptome, Funktion, Ziele, Vorgeschichte, aktuelle Situation, Risiken, Einschränkungen und Präferenzen gewichtet, und gegeneinander. Evidenzqualität, Veränderbarkeit, erwarteter Nutzen, Aufwand und verbleibende Unsicherheit zählen mit. Das Ergebnis ist ein kürzerer Plan, kein längerer Bericht.">Findings are weighed against your symptoms, function, goals, history, current state, risk, constraints and preferences.</p>
+      </div>
+    </div>
+    <ol class="rules">
+      <li><span class="num">01</span><h3 data-en="Interpretation" data-de="Interpretation">Interpretation</h3><p data-en="Each finding is read in the context of the others and of your clinical picture, rather than against a reference range alone." data-de="Jeder Befund wird im Kontext der übrigen und Ihres klinischen Bildes gelesen, nicht allein gegen einen Referenzbereich.">Each finding is read in the context of the others and of your clinical picture, rather than against a reference range alone.</p></li>
+      <li><span class="num">02</span><h3 data-en="Ranked hypotheses" data-de="Gewichtete Hypothesen">Ranked hypotheses</h3><p data-en="Competing explanations for what maintains the current state are listed and then ranked. The ranking is the clinical work." data-de="Konkurrierende Erklärungen für das, was den aktuellen Zustand aufrechterhält, werden aufgeführt und anschliessend gewichtet. In der Gewichtung liegt die klinische Arbeit.">Competing explanations for what maintains the current state are listed and then ranked. The ranking is the clinical work.</p></li>
+      <li><span class="num">03</span><h3 data-en="Prioritised action" data-de="Priorisiertes Vorgehen">Prioritised action</h3><p data-en="The first step targets the highest-ranked driver that is modifiable and fast to read out, so the model is tested in weeks rather than months." data-de="Der erste Schritt zielt auf den am höchsten gewichteten Faktor, der veränderbar und schnell auslesbar ist, damit das Modell in Wochen statt Monaten geprüft wird.">The first step targets the highest-ranked driver that is modifiable and fast to read out, so the model is tested in weeks rather than months.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 08 ROADMAP TOOL -->
+<section class="on-ink-2" id="roadmap">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Your preliminary roadmap" data-de="Ihre vorläufige Roadmap">Your preliminary roadmap</p><span class="num">08</span></div>
+    <div class="split">
+      <div><h2 data-en="A quick look at what may be shaping your state" data-de="Ein kurzer Blick darauf, was Ihren Zustand prägen könnte">A quick look at what may be shaping your state</h2></div>
+      <div class="col dim">
+        <p data-en="Three questions and about a minute. You will see which systems your pattern makes worth looking at, and the questions we would want answered. It is a thinking tool rather than an assessment, it produces no score and no probability, and nothing is stored here." data-de="Drei Fragen, etwa eine Minute. Sie sehen, welche Systeme Ihr Muster interessant macht und welche Fragen wir beantwortet haben wollten. Ein Denkwerkzeug statt einer Abklärung, ohne Score und ohne Wahrscheinlichkeit, und es wird hier nichts gespeichert.">Three questions and about a minute. You will see which systems your pattern makes worth looking at, and the questions we would want answered. It is a thinking tool rather than an assessment, it produces no score and no probability, and nothing is stored here.</p>
+      </div>
+    </div>
+
+    <div class="wiz" id="wiz"></div>
+  </div>
+</section>
+
+<!-- 09 INTERVENTION -->
+<section class="on-paper" id="intervention">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Intervention" data-de="Intervention">Intervention</p><span class="num">09</span></div>
+    <div class="split">
+      <div><h2 data-en="Intervention follows the formulation, and stays inside medicine" data-de="Die Intervention folgt der Formulierung und bleibt innerhalb der Medizin">Intervention follows the formulation, and stays inside medicine</h2></div>
+      <div class="col dim">
+        <p data-en="What we do depends on what the assessment found and on what is most likely to move. Every step carries an expected response and a point at which we check whether it happened. Where the relevant problem belongs to another specialty, it is referred there rather than absorbed here." data-de="Was wir tun, hängt davon ab, was die Abklärung ergeben hat und was sich am ehesten bewegen lässt. Jeder Schritt trägt eine erwartete Reaktion und einen Zeitpunkt, an dem wir prüfen, ob sie eingetreten ist. Gehört das relevante Problem in ein anderes Fachgebiet, wird es dorthin überwiesen und nicht hier behalten.">What we do depends on what the assessment found and on what is most likely to move.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><h3 data-en="Psychiatric and psychotherapeutic treatment" data-de="Psychiatrische und psychotherapeutische Behandlung">Psychiatric and psychotherapeutic treatment</h3>
+        <p data-en="Diagnosis, medication and its optimisation, psychotherapy, risk assessment. Standard specialist care remains the backbone." data-de="Diagnostik, Medikation und deren Optimierung, Psychotherapie, Risikobeurteilung. Fachärztliche Regelversorgung bleibt das Rückgrat.">Diagnosis, medication and its optimisation, psychotherapy, risk assessment.</p>
+        <p style="margin-top:9px"><span class="lvl l1" data-en="Established" data-de="Etabliert">Established</span></p></li>
+      <li><h3 data-en="Sleep, activity, nutrition and recovery" data-de="Schlaf, Aktivität, Ernährung und Erholung">Sleep, activity, nutrition and recovery</h3>
+        <p data-en="Sleep and circadian intervention, conditioning, nutrition, behavioural change, stress regulation, and the structure of the working week." data-de="Schlaf- und zirkadiane Intervention, Konditionierung, Ernährung, Verhaltensänderung, Stressregulation und die Struktur der Arbeitswoche.">Sleep and circadian intervention, conditioning, nutrition, behavioural change, stress regulation.</p>
+        <p style="margin-top:9px"><span class="lvl l1" data-en="Established" data-de="Etabliert">Established</span> <span class="lvl l2" data-en="Conditional" data-de="Bedingt">Conditional</span></p></li>
+      <li><h3 data-en="Medical contributors and specialist pathways" data-de="Medizinische Mitursachen und Facharztwege">Medical contributors and specialist pathways</h3>
+        <p data-en="Identified metabolic, endocrine, cardiovascular, immune or sleep-related contributors are treated through the appropriate medical route, with your existing physicians." data-de="Identifizierte metabolische, endokrine, kardiovaskuläre, immunologische oder schlafbezogene Mitursachen werden über den passenden medizinischen Weg behandelt, gemeinsam mit Ihren bestehenden Ärztinnen und Ärzten.">Identified medical contributors are treated through the appropriate medical route.</p>
+        <p style="margin-top:9px"><span class="lvl l1" data-en="Established" data-de="Etabliert">Established</span></p></li>
+      <li><h3 data-en="Selected supplementation" data-de="Gezielte Supplementierung">Selected supplementation</h3>
+        <p data-en="Only where a deficiency or a specific indication has been demonstrated, and only with a defined expected effect and a re-test." data-de="Nur wenn ein Mangel oder eine spezifische Indikation belegt ist, und nur mit definiertem erwartetem Effekt und Re-Test.">Only where a deficiency or specific indication has been demonstrated.</p>
+        <p style="margin-top:9px"><span class="lvl l2" data-en="Conditional" data-de="Bedingt">Conditional</span></p></li>
+      <li><h3 data-en="Neuromodulation and neurofeedback" data-de="Neuromodulation und Neurofeedback">Neuromodulation and neurofeedback</h3>
+        <p data-en="Considered in specific presentations. The evidence base varies considerably by method and indication, and we say where it is thin." data-de="Bei bestimmten Konstellationen erwogen. Die Evidenzlage variiert erheblich nach Methode und Indikation, und wir benennen, wo sie dünn ist.">Considered in specific presentations. The evidence base varies considerably by method and indication.</p>
+        <p style="margin-top:9px"><span class="lvl l3" data-en="Emerging" data-de="Aufkommend">Emerging</span></p></li>
+      <li><h3 data-en="Coordination" data-de="Koordination">Coordination</h3>
+        <p data-en="Holding the model together across everyone involved, so that decisions taken in one place are visible in the others." data-de="Das Modell über alle Beteiligten hinweg zusammenhalten, damit Entscheidungen an einem Ort auch an den anderen sichtbar sind.">Holding the model together across everyone involved.</p>
+        <p style="margin-top:9px"><span class="lvl l2" data-en="Conditional" data-de="Bedingt">Conditional</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10 MEASURING RESPONSE -->
+<section class="on-ink" id="response">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Measuring whether it worked" data-de="Messen, ob es gewirkt hat">Measuring whether it worked</p><span class="num">10</span></div>
+    <div class="split">
+      <div><h2 data-en="Treatment is not assumed to work because it was delivered" data-de="Eine Behandlung gilt nicht als wirksam, nur weil sie durchgeführt wurde">Treatment is not assumed to work because it was delivered</h2></div>
+      <div class="col dim">
+        <p data-en="Before anything starts, we state what should change, by roughly when, and how it will be measured. Then we measure it. In depression, this way of working has been compared directly against usual care in a randomised trial and produced better response and remission rates.<button class='cite' data-ref='4'>4</button>" data-de="Bevor etwas beginnt, legen wir fest, was sich verändern soll, bis ungefähr wann und womit es gemessen wird. Dann messen wir es. Bei Depression wurde dieses Vorgehen in einer randomisierten Studie direkt mit der üblichen Behandlung verglichen und erzielte bessere Ansprech- und Remissionsraten.<button class='cite' data-ref='4'>4</button>" data-html>Before anything starts, we state what should change, by roughly when, and how it will be measured.</p>
+      </div>
+    </div>
+    <ol class="seq">
+      <li><span class="num">01</span><h3 data-en="Baseline" data-de="Ausgangswert">Baseline</h3><p data-en="Symptoms, function and the relevant measures, recorded before anything changes." data-de="Symptome, Funktion und die relevanten Messwerte, erhoben bevor sich etwas ändert.">Symptoms, function and the relevant measures, recorded before anything changes.</p></li>
+      <li><span class="num">02</span><h3 data-en="Intervention" data-de="Intervention">Intervention</h3><p data-en="One clearly defined step, chosen for expected effect and feasibility." data-de="Ein klar definierter Schritt, gewählt nach erwartetem Effekt und Umsetzbarkeit.">One clearly defined step, chosen for expected effect and feasibility.</p></li>
+      <li><span class="num">03</span><h3 data-en="Expected response" data-de="Erwartete Reaktion">Expected response</h3><p data-en="What should change, in what direction, by roughly when. Stated in advance." data-de="Was sich verändern soll, in welche Richtung, bis ungefähr wann. Vorab festgelegt.">What should change, in what direction, by roughly when. Stated in advance.</p></li>
+      <li><span class="num">04</span><h3 data-en="Reassessment" data-de="Wiedermessung">Reassessment</h3><p data-en="The same measures under the same conditions, so the comparison means something." data-de="Dieselben Messgrössen unter denselben Bedingungen, damit der Vergleich aussagekräftig ist.">The same measures under the same conditions.</p></li>
+      <li><span class="num">05</span><h3 data-en="Comparison" data-de="Vergleich">Comparison</h3><p data-en="Prediction against outcome. A miss is information, not failure." data-de="Vorhersage gegen Ergebnis. Eine Abweichung ist Information, kein Scheitern.">Prediction against outcome. A miss is information, not failure.</p></li>
+      <li><span class="num">06</span><h3 data-en="Adjustment" data-de="Anpassung">Adjustment</h3><p data-en="Continue, modify, or revise the model and rank the hypotheses again." data-de="Fortführen, anpassen oder das Modell revidieren und die Hypothesen neu gewichten.">Continue, modify, or revise the model and rank the hypotheses again.</p></li>
+    </ol>
+    <p class="seq-note" data-en="Outcomes are chosen for the individual: symptoms, daily functioning, cognition, sleep, physiological measures, fitness, relevant laboratory values, treatment burden, quality of life." data-de="Die Ergebnisgrössen werden individuell gewählt: Symptome, Alltagsfunktion, Kognition, Schlaf, physiologische Messwerte, Fitness, relevante Laborwerte, Behandlungsaufwand, Lebensqualität.">Outcomes are chosen for the individual.</p>
+  </div>
+</section>
+
+<!-- 11 WHO -->
+<section class="on-paper" id="who">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Who this is for" data-de="Für wen das ist">Who this is for</p><span class="num">11</span></div>
+    <div class="split">
+      <div><h2 data-en="Four situations this is built for" data-de="Vier Situationen, für die das gebaut ist">Four situations this is built for</h2></div>
+      <div class="col dim">
+        <p data-en="Not everyone needs every assessment, and not everyone needs us. If your situation is well explained and well treated by your current care, that is the right answer and we will say so." data-de="Nicht alle brauchen jede Abklärung, und nicht alle brauchen uns. Wenn Ihre Situation durch Ihre bestehende Behandlung gut erklärt und gut versorgt ist, ist das die richtige Antwort, und wir sagen das auch.">Not everyone needs every assessment, and not everyone needs us.</p>
+      </div>
+    </div>
+    <div class="paths">
+      <article><h3 data-en="Mental health with incomplete response" data-de="Psychische Gesundheit mit unvollständigem Ansprechen">Mental health with incomplete response</h3>
+        <p data-en="You have a diagnosis and have been treated, and the response has been partial, absent, or bought at a cost in function you are not willing to keep paying." data-de="Sie haben eine Diagnose und wurden behandelt, und das Ansprechen war unvollständig, blieb aus oder wurde mit funktionellen Einbussen erkauft, die Sie nicht dauerhaft hinnehmen wollen.">You have a diagnosis and have been treated, and the response has been partial, absent, or bought at a cost in function.</p>
+        <p class="fit" data-en="The question we would work on: what is maintaining this, that treatment has not yet addressed?" data-de="Die Frage, an der wir arbeiten würden: Was hält das aufrecht, das die Behandlung bisher nicht erfasst hat?">The question we would work on: what is maintaining this, that treatment has not yet addressed?</p></article>
+      <article><h3 data-en="Cognition and sustained performance" data-de="Kognition und dauerhafte Leistungsfähigkeit">Cognition and sustained performance</h3>
+        <p data-en="Concentration, cognitive capacity, stress tolerance or recovery are not where they were, and the demands on you have not moved accordingly." data-de="Konzentration, kognitive Kapazität, Stresstoleranz oder Erholung sind nicht mehr dort, wo sie waren, und die Anforderungen an Sie haben sich nicht entsprechend verändert.">Concentration, cognitive capacity, stress tolerance or recovery are not where they were.</p>
+        <p class="fit" data-en="The question we would work on: is this a capacity problem, a state problem, or a demand problem?" data-de="Die Frage, an der wir arbeiten würden: Ist das ein Kapazitätsproblem, ein Zustandsproblem oder ein Anforderungsproblem?">The question we would work on: is this a capacity problem, a state problem, or a demand problem?</p></article>
+      <article><h3 data-en="Brain health and prevention" data-de="Hirngesundheit und Prävention">Brain health and prevention</h3>
+        <p data-en="You want to understand which factors associated with long-term brain and cognitive health apply to you, and which of them you can actually influence." data-de="Sie wollen verstehen, welche Faktoren langfristiger Hirn- und kognitiver Gesundheit auf Sie zutreffen und welche davon Sie tatsächlich beeinflussen können.">You want to understand which factors associated with long-term brain and cognitive health apply to you.</p>
+        <p class="fit" data-en="The question we would work on: what is your actual modifiable risk, separated from what is merely measurable?" data-de="Die Frage, an der wir arbeiten würden: Was ist Ihr tatsächlich veränderbares Risiko, getrennt von dem, was lediglich messbar ist?">The question we would work on: what is your actual modifiable risk, separated from what is merely measurable?</p></article>
+      <article><h3 data-en="Complex or unsynthesised cases" data-de="Komplexe oder unzusammengeführte Fälle">Complex or unsynthesised cases</h3>
+        <p data-en="Multiple interacting symptoms, several specialists, a stack of reports, and no single model that accounts for them together." data-de="Mehrere zusammenwirkende Symptome, verschiedene Fachpersonen, ein Stapel Berichte und kein einziges Modell, das sie gemeinsam erklärt.">Multiple interacting symptoms, several specialists, a stack of reports, and no single model.</p>
+        <p class="fit" data-en="The question we would work on: what do these findings look like when they are read together rather than separately?" data-de="Die Frage, an der wir arbeiten würden: Wie sehen diese Befunde aus, wenn man sie gemeinsam statt getrennt liest?">The question we would work on: what do these findings look like when read together?</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ABOUT -->
+<section class="on-ink" id="about">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Who is responsible" data-de="Wer verantwortlich ist">Who is responsible</p><span class="num">12</span></div>
+    <div class="about">
+      <div class="portrait"><span data-en="Founder portrait to be supplied. A real professional photograph belongs here." data-de="Porträt der Gründungsperson folgt. Hier gehört ein echtes professionelles Foto hin.">Founder portrait to be supplied.</span></div>
+      <div>
+        <h2 style="max-width:20ch" data-en="Every clinical decision is made by a physician, and it is the same physician throughout" data-de="Jede klinische Entscheidung trifft eine Ärztin oder ein Arzt, und es ist durchgehend dieselbe Person">Every clinical decision is made by a physician, and it is the same physician throughout</h2>
+        <p class="dim" style="margin-top:20px;max-width:64ch" data-en="This model needs someone who can hold a psychiatric presentation, biological systems, general medicine, neuroscience and longitudinal measurement in view at once, and who knows where the evidence for each of them ends. That combination is the reason the work can be integrated rather than handed between specialties. It is also the reason the limits are stated openly." data-de="Dieses Modell braucht eine Person, die psychiatrische Präsentation, biologische Systeme, allgemeine Medizin, Neurowissenschaft und längsschnittliche Messung gleichzeitig im Blick behält und weiss, wo die Evidenz für jedes davon endet. Diese Kombination ist der Grund, weshalb die Arbeit integriert werden kann, statt zwischen Fachgebieten weitergereicht zu werden. Sie ist auch der Grund, weshalb die Grenzen offen benannt werden.">This model needs someone who can hold a psychiatric presentation, biological systems, general medicine, neuroscience and longitudinal measurement in view at once.</p>
+        <ul class="creds">
+          <li data-en="Swiss board-certified specialist in psychiatry and psychotherapy" data-de="Schweizer Facharzt für Psychiatrie und Psychotherapie">Swiss board-certified specialist in psychiatry and psychotherapy</li>
+          <li data-en="Medicine, biology, chemistry and biochemistry background" data-de="Hintergrund in Medizin, Biologie, Chemie und Biochemie">Medicine, biology, chemistry and biochemistry background</li>
+          <li data-en="Clinical practice in Aarau, Switzerland. Consultations in German and English." data-de="Klinische Tätigkeit in Aarau, Schweiz. Sprechstunden auf Deutsch und Englisch.">Clinical practice in Aarau, Switzerland. Consultations in German and English.</li>
+          <li class="dim" data-en="Full credentials, registration details and professional memberships to be completed before publication." data-de="Vollständige Qualifikationen, Registrierungsangaben und Mitgliedschaften werden vor Veröffentlichung ergänzt.">Full credentials to be completed before publication.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 PROCESS -->
+<section class="on-paper" id="process">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="How it works" data-de="Ablauf">How it works</p><span class="num">13</span></div>
+    <div class="split">
+      <div><h2 data-en="What actually happens, in order" data-de="Was tatsächlich geschieht, der Reihe nach">What actually happens, in order</h2></div>
+      <div class="col dim">
+        <p data-en="You coordinate nothing. Appointments, test selection, interpretation and correspondence with your other physicians are handled here. What is asked of you is honesty in the first conversation, attendance for what has to be done in person, and the willingness to actually run the first intervention long enough to read the result." data-de="Sie koordinieren nichts. Termine, Auswahl der Untersuchungen, Interpretation und Korrespondenz mit Ihren anderen Ärztinnen und Ärzten werden hier übernommen. Von Ihnen verlangt wird Offenheit im Erstgespräch, Präsenz für das, was vor Ort nötig ist, und die Bereitschaft, die erste Intervention lange genug durchzuführen, um das Ergebnis lesen zu können.">You coordinate nothing.</p>
+      </div>
+    </div>
+    <ol class="time">
+      <li><span class="num">01</span><h3 data-en="Confidential introduction" data-de="Vertrauliches Erstgespräch">Confidential introduction</h3><p data-en="What the problem is, what you want changed, and whether this is the right service for it. If it is not, we say so." data-de="Worum es geht, was Sie verändern möchten und ob dies der richtige Dienst dafür ist. Wenn nicht, sagen wir es.">What the problem is, what you want changed, and whether this is the right service for it.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">02</span><h3 data-en="Assessment" data-de="Abklärung">Assessment</h3><p data-en="The clinical information and the measurements that are actually justified in your case, and nothing beyond them." data-de="Die klinischen Informationen und die Messungen, die in Ihrem Fall tatsächlich gerechtfertigt sind, und nichts darüber hinaus.">The clinical information and the measurements that are actually justified in your case.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">03</span><h3 data-en="Interpretation" data-de="Interpretation">Interpretation</h3><p data-en="Findings are read together and the working model is built, with the hypotheses ranked." data-de="Die Befunde werden gemeinsam gelesen und das Arbeitsmodell wird gebaut, mit gewichteten Hypothesen.">Findings are read together and the working model is built.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">04</span><h3 data-en="Plan" data-de="Plan">Plan</h3><p data-en="Interventions, the response expected from each, the outcomes that will be tracked, and the date of the first review." data-de="Interventionen, die jeweils erwartete Reaktion, die zu verfolgenden Ergebnisgrössen und der Termin der ersten Überprüfung.">Interventions, the expected response, the outcomes tracked, and the date of the first review.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">05</span><h3 data-en="Implementation" data-de="Umsetzung">Implementation</h3><p data-en="The plan runs, with your existing physicians kept in the loop where they are involved." data-de="Der Plan läuft, Ihre bestehenden Ärztinnen und Ärzte bleiben eingebunden, wo sie beteiligt sind.">The plan runs, with your existing physicians kept in the loop.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">06</span><h3 data-en="Reassessment" data-de="Wiedermessung">Reassessment</h3><p data-en="The same measures again, compared against what was predicted." data-de="Dieselben Messgrössen erneut, verglichen mit dem, was vorhergesagt wurde.">The same measures again, compared against what was predicted.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+      <li><span class="num">07</span><h3 data-en="Adaptation" data-de="Anpassung">Adaptation</h3><p data-en="Continue what worked, change what did not, and revise the model where the prediction missed." data-de="Fortführen, was gewirkt hat, ändern, was nicht gewirkt hat, und das Modell dort revidieren, wo die Vorhersage danebenlag.">Continue what worked, change what did not, and revise the model where the prediction missed.</p><span class="when" data-en="Timing to be confirmed" data-de="Zeitangabe folgt">Timing to be confirmed</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 14 FAQ -->
+<section class="on-paper-2" id="faq">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Questions" data-de="Fragen">Questions</p><span class="num">14</span></div>
+    <div class="split">
+      <div><h2 data-en="The questions that decide whether this is worth a conversation" data-de="Die Fragen, die entscheiden, ob sich ein Gespräch lohnt">The questions that decide whether this is worth a conversation</h2></div>
+      <div class="col dim"><p data-en="If something you need to know is not here, ask it in the consultation request and it will be answered before anything is booked." data-de="Fehlt etwas, das Sie wissen müssen, stellen Sie die Frage in der Terminanfrage. Sie wird beantwortet, bevor irgendetwas gebucht wird.">If something you need to know is not here, ask it in the consultation request.</p></div>
+    </div>
+    <div class="acc" id="faqAcc"></div>
+  </div>
+</section>
+
+<!-- 15 CONTACT -->
+<section class="on-ink" id="contact">
+  <div class="shell">
+    <div class="rail"><p class="tag" data-en="Next step" data-de="Nächster Schritt">Next step</p><span class="num">15</span></div>
+    <div class="contact-grid">
+      <div>
+        <h2 data-en="Find out whether this approach fits your situation" data-de="Herausfinden, ob dieser Ansatz zu Ihrer Situation passt">Find out whether this approach fits your situation</h2>
+        <p class="lede dim" style="margin-top:18px" data-en="Tell us briefly what you are dealing with and what you would like to change. A physician reads every enquiry personally. The first conversation establishes whether this is the right service for your situation, and if it is not, you will be told that rather than sold something." data-de="Beschreiben Sie kurz, worum es geht und was Sie verändern möchten. Jede Anfrage wird persönlich ärztlich gelesen. Das erste Gespräch klärt, ob dies der richtige Dienst für Ihre Situation ist. Wenn nicht, erfahren Sie das, statt dass Ihnen etwas verkauft wird.">Tell us briefly what you are dealing with and what you would like to change.</p>
+        <dl class="facts">
+          <div><dt data-en="What happens next" data-de="Was als Nächstes geschieht">What happens next</dt><dd data-en="A physician reads your enquiry and replies personally. No automated sequence, no call centre." data-de="Eine Ärztin oder ein Arzt liest Ihre Anfrage und antwortet persönlich. Keine automatisierte Abfolge, kein Callcenter.">A physician reads your enquiry and replies personally.</dd></div>
+          <div><dt data-en="Practice" data-de="Praxis">Practice</dt><dd>BetterHealth, Aarau, Switzerland</dd></div>
+          <div><dt data-en="Languages" data-de="Sprachen">Languages</dt><dd data-en="German and English" data-de="Deutsch und Englisch">German and English</dd></div>
+          <div><dt data-en="Email" data-de="E-Mail">Email</dt><dd><a href="mailto:hello@betterhealth.ch">hello@betterhealth.ch</a></dd></div>
+        </dl>
+      </div>
+      <form class="form" id="enquiry" novalidate>
+        <div class="f"><label for="f-name" data-en="Name" data-de="Name">Name</label><input id="f-name" type="text" autocomplete="name" required></div>
+        <div class="f"><label for="f-mail" data-en="Email" data-de="E-Mail">Email</label><input id="f-mail" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-tel" data-en="Phone (optional)" data-de="Telefon (optional)">Phone (optional)</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="f-msg" data-en="What would you like to change?" data-de="Was möchten Sie verändern?">What would you like to change?</label><textarea id="f-msg" rows="4" required></textarea>
+          <p class="hint" data-en="A few sentences is enough at this stage. No medical history is needed yet." data-de="Ein paar Sätze genügen an dieser Stelle. Eine Krankengeschichte ist noch nicht nötig.">A few sentences is enough at this stage.</p></div>
+        <label class="check"><input type="checkbox" id="f-consent" required>
+          <span data-en="I agree that BetterHealth may contact me about this enquiry and store the details I provide for that purpose." data-de="Ich bin damit einverstanden, dass BetterHealth mich zu dieser Anfrage kontaktiert und die angegebenen Daten zu diesem Zweck speichert.">I agree that BetterHealth may contact me about this enquiry and store the details I provide for that purpose.</span></label>
+        <p class="msg" id="formMsg" role="status" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit" style="width:100%" data-en="Request a confidential consultation" data-de="Vertrauliches Erstgespräch anfragen">Request a confidential consultation</button>
+        <p class="hint" style="margin-top:14px" data-en="Please do not send urgent or emergency information through this form." data-de="Bitte senden Sie keine dringenden oder Notfall-Informationen über dieses Formular.">Please do not send urgent or emergency information through this form.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="on-ink-2">
+  <div class="shell foot">
+    <div class="foot-top">
+      <a class="brand" href="#top"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><rect x="9" y="1.2" width="11" height="11" transform="rotate(45 9 1.2)" fill="none" stroke="currentColor" stroke-width="1"/><rect x="6.8" y="6.8" width="4.4" height="4.4" fill="#D4AF37"/></svg>BetterHealth</a>
+      <p class="foot-line dim" data-en="Precision brain and mental health. Psychiatry and psychotherapy, neuroscience, systems biology, measurement-based care." data-de="Präzise Hirn- und psychische Gesundheit. Psychiatrie und Psychotherapie, Neurowissenschaft, Systembiologie, messbasierte Versorgung.">Precision brain and mental health.</p>
+    </div>
+    <div class="foot-cols">
+      <nav aria-label="Footer">
+        <a href="#model" data-en="Approach" data-de="Ansatz">Approach</a>
+        <a href="#science" data-en="Science" data-de="Wissenschaft">Science</a>
+        <a href="#measure" data-en="Assessment" data-de="Abklärung">Assessment</a>
+        <a href="#roadmap" data-en="Roadmap" data-de="Roadmap">Roadmap</a>
+        <a href="#who" data-en="Who it is for" data-de="Für wen">Who it is for</a>
+        <a href="#faq" data-en="FAQ" data-de="FAQ">FAQ</a>
+        <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+      </nav>
+      <p class="disclaimer dim" data-en="The information on this site is general and does not replace individual medical advice, diagnosis or treatment. The preliminary roadmap tool is educational and does not produce a diagnosis or a treatment plan. If you need urgent help, contact your physician or call the emergency number in your country. In Switzerland this is 144." data-de="Die Informationen auf dieser Website sind allgemeiner Natur und ersetzen keine individuelle ärztliche Beratung, Diagnose oder Behandlung. Das Roadmap-Tool ist edukativ und erzeugt weder eine Diagnose noch einen Behandlungsplan. Bei dringendem Bedarf wenden Sie sich an Ihre Ärztin oder Ihren Arzt oder rufen Sie die Notrufnummer Ihres Landes an. In der Schweiz ist das 144.">The information on this site is general and does not replace individual medical advice, diagnosis or treatment.</p>
+    </div>
+    <p class="foot-legal dim">© <span id="yr">2026</span> BetterHealth · <span data-en="Imprint and privacy notice to be added before publication." data-de="Impressum und Datenschutzerklärung werden vor Veröffentlichung ergänzt.">Imprint and privacy notice to be added before publication.</span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var d=document, lang="en";
+
+/* ---------- content data ---------- */
+var MEASURE=[
+ {id:"psy",lvl:"l1",t:{en:"Psychiatric and psychological state",de:"Psychiatrischer und psychologischer Zustand"},
+  u:{en:"Symptom pattern, severity, variability, function, treatment history and response.",de:"Symptommuster, Schweregrad, Variabilität, Funktion, Behandlungsgeschichte und Ansprechen."},
+  w:{en:"It defines what we are actually trying to change, and validated measures make change visible rather than remembered.",de:"Er definiert, was tatsächlich verändert werden soll, und validierte Instrumente machen Veränderung sichtbar statt erinnerbar."},
+  n:{en:"Always, at baseline and at each review.",de:"Immer, zu Beginn und bei jeder Überprüfung."},
+  c:{en:"It sets the outcome against which every later decision is judged.",de:"Er setzt die Messlatte, an der jede spätere Entscheidung beurteilt wird."}},
+ {id:"cog",lvl:"l1",t:{en:"Cognition",de:"Kognition"},
+  u:{en:"Attention, memory, processing speed and executive function, against your own baseline where one exists.",de:"Aufmerksamkeit, Gedächtnis, Verarbeitungsgeschwindigkeit und exekutive Funktion, gegen Ihren eigenen Ausgangswert, falls vorhanden."},
+  w:{en:"Subjective cognitive complaints and objective performance often diverge, and the direction of that divergence changes the interpretation.",de:"Subjektive kognitive Klagen und objektive Leistung weichen oft voneinander ab, und die Richtung dieser Abweichung verändert die Interpretation."},
+  n:{en:"When cognitive change is a presenting concern or a stated goal.",de:"Wenn kognitive Veränderung ein Anliegen oder ein erklärtes Ziel ist."},
+  c:{en:"It separates a capacity problem from a state problem, which leads to different plans.",de:"Sie trennt ein Kapazitätsproblem von einem Zustandsproblem, was zu unterschiedlichen Plänen führt."}},
+ {id:"sleep",lvl:"l1",t:{en:"Sleep and circadian rhythm",de:"Schlaf und zirkadianer Rhythmus"},
+  u:{en:"Timing, continuity and depth of sleep, and whether breathing or circadian misalignment is involved.",de:"Zeitpunkt, Kontinuität und Tiefe des Schlafs sowie die Frage, ob Atmung oder zirkadiane Fehlausrichtung beteiligt sind."},
+  w:{en:"Disturbed sleep can cause a dysregulated day or result from one, and the two require opposite first steps.",de:"Gestörter Schlaf kann einen dysregulierten Tag verursachen oder daraus folgen, und beides verlangt entgegengesetzte erste Schritte."},
+  n:{en:"Whenever sleep, fatigue, mood or cognition are part of the picture.",de:"Immer wenn Schlaf, Erschöpfung, Stimmung oder Kognition Teil des Bildes sind."},
+  c:{en:"A suspected sleep disorder moves to formal sleep investigation rather than being treated behaviourally.",de:"Ein Verdacht auf eine Schlafstörung führt zur formalen Schlafabklärung statt zu verhaltensbezogener Behandlung."}},
+ {id:"auto",lvl:"l2",t:{en:"Autonomic regulation and recovery",de:"Autonome Regulation und Erholung"},
+  u:{en:"Whether arousal settles during rest, or whether elevated activation persists into recovery periods.",de:"Ob die Aktivierung in Ruhe abfällt oder ob erhöhte Aktivierung in Erholungsphasen bestehen bleibt."},
+  w:{en:"Persistent activation is a plausible link between sustained demand and symptoms across sleep, mood and cognition.",de:"Anhaltende Aktivierung ist eine plausible Verbindung zwischen Dauerbelastung und Symptomen in Schlaf, Stimmung und Kognition."},
+  n:{en:"Where load, recovery or stress tolerance are central to the case.",de:"Wenn Belastung, Erholung oder Stresstoleranz im Zentrum stehen."},
+  c:{en:"Interpretation depends heavily on method and context, so findings are used as one input among several and never alone.",de:"Die Interpretation hängt stark von Methode und Kontext ab, weshalb Befunde als einer von mehreren Eingängen dienen und nie allein."}},
+ {id:"met",lvl:"l1",t:{en:"Metabolic, endocrine and nutritional status",de:"Metabolischer, endokriner und Nährstoffstatus"},
+  u:{en:"Glucose regulation, thyroid and relevant hormonal function, and deficiency states with a plausible route to symptoms.",de:"Glukoseregulation, Schilddrüsen- und relevante Hormonfunktion sowie Mangelzustände mit plausibler Verbindung zu Symptomen."},
+  w:{en:"Some of the most treatable contributors to fatigue, low mood and cognitive complaints sit here.",de:"Einige der am besten behandelbaren Mitursachen von Erschöpfung, gedrückter Stimmung und kognitiven Klagen liegen hier."},
+  n:{en:"Where history, symptoms or risk profile make a contributor plausible, not as a routine sweep.",de:"Wenn Vorgeschichte, Symptome oder Risikoprofil eine Mitursache plausibel machen, nicht als Routinescreening."},
+  c:{en:"A reversible contributor is treated directly, which sometimes removes the need for anything else.",de:"Eine reversible Mitursache wird direkt behandelt, was manchmal alles Weitere erübrigt."}},
+ {id:"cv",lvl:"l1",t:{en:"Cardiovascular function and fitness",de:"Kardiovaskuläre Funktion und Fitness"},
+  u:{en:"Blood pressure, exercise tolerance, aerobic capacity and recovery.",de:"Blutdruck, Belastungstoleranz, aerobe Kapazität und Erholung."},
+  w:{en:"Cardiovascular health is among the better-supported modifiable factors for long-term brain health, and capacity constrains daily function directly.",de:"Kardiovaskuläre Gesundheit gehört zu den besser belegten veränderbaren Faktoren langfristiger Hirngesundheit, und Kapazität begrenzt die Alltagsfunktion unmittelbar."},
+  n:{en:"In prevention work, in exhaustion presentations, and wherever exercise is part of the plan.",de:"In der Prävention, bei Erschöpfungsbildern und überall dort, wo Bewegung Teil des Plans ist."},
+  c:{en:"It sets a realistic starting dose for conditioning and gives an objective outcome to re-measure.",de:"Sie legt eine realistische Startdosis für das Training fest und liefert eine objektive Grösse zum Wiedermessen."}},
+ {id:"inf",lvl:"l2",t:{en:"Inflammatory and immune state",de:"Entzündungs- und Immunstatus"},
+  u:{en:"Whether an inflammatory or immune process is plausibly contributing in this particular case.",de:"Ob ein entzündlicher oder immunologischer Prozess in diesem konkreten Fall plausibel beiträgt."},
+  w:{en:"Immune signalling can influence mood, fatigue and cognition, but the individual-level evidence is far weaker than the group-level evidence.",de:"Immunsignale können Stimmung, Erschöpfung und Kognition beeinflussen, doch die Evidenz auf Individualebene ist weit schwächer als auf Gruppenebene."},
+  n:{en:"Only where history or symptoms make it plausible.",de:"Nur wenn Vorgeschichte oder Symptome es plausibel machen."},
+  c:{en:"A clear finding opens a medical pathway. An unclear one is not treated as an explanation.",de:"Ein klarer Befund eröffnet einen medizinischen Weg. Ein unklarer wird nicht als Erklärung behandelt."}},
+ {id:"brain",lvl:"l2",t:{en:"Brain structure and function",de:"Hirnstruktur und Hirnfunktion"},
+  u:{en:"Whether a structural or functional finding is present that would change the clinical direction.",de:"Ob ein struktureller oder funktioneller Befund vorliegt, der die klinische Richtung verändern würde."},
+  w:{en:"Imaging and electrophysiology answer specific questions well and general questions badly.",de:"Bildgebung und Elektrophysiologie beantworten spezifische Fragen gut und allgemeine Fragen schlecht."},
+  n:{en:"Only with a specific indication from history, examination or cognitive findings. Never as a screening step.",de:"Nur bei spezifischer Indikation aus Anamnese, Untersuchung oder kognitiven Befunden. Nie als Screening."},
+  c:{en:"A positive finding redirects care, often out of psychiatry. A negative one narrows the differential.",de:"Ein positiver Befund lenkt die Behandlung um, oft aus der Psychiatrie hinaus. Ein negativer engt die Differenzialdiagnose ein."}},
+ {id:"beh",lvl:"l1",t:{en:"Behaviour, activity and environment",de:"Verhalten, Aktivität und Umgebung"},
+  u:{en:"What the week actually looks like: activity, recovery, alcohol, routines, demand, control and social context.",de:"Wie die Woche tatsächlich aussieht: Aktivität, Erholung, Alkohol, Routinen, Anforderung, Kontrolle und soziales Umfeld."},
+  w:{en:"These are frequently the highest-yield modifiable factors and the ones most often skipped in favour of testing.",de:"Diese sind häufig die ertragreichsten veränderbaren Faktoren und werden am häufigsten zugunsten von Diagnostik übersprungen."},
+  n:{en:"Always.",de:"Immer."},
+  c:{en:"It determines what is realistically implementable, which decides whether any plan survives contact with your week.",de:"Sie bestimmt, was realistisch umsetzbar ist, und entscheidet damit, ob ein Plan den Kontakt mit Ihrer Woche überlebt."}}
+];
+
+var FAQ=[
+ {q:{en:"Is this still psychiatry?",de:"Ist das noch Psychiatrie?"},
+  a:{en:"Yes. Diagnosis, medication, psychotherapy and risk assessment remain part of the work, carried out by a board-certified specialist. What is added is a systematic account of the biological, behavioural and environmental processes that may be maintaining the state, and a measured way of testing whether treatment does what it was expected to do.",de:"Ja. Diagnostik, Medikation, Psychotherapie und Risikobeurteilung bleiben Teil der Arbeit, durchgeführt von einer fachärztlichen Person. Hinzu kommt eine systematische Betrachtung der biologischen, verhaltensbezogenen und umweltbezogenen Prozesse, die den Zustand aufrechterhalten könnten, sowie ein messbasiertes Vorgehen zur Prüfung, ob die Behandlung tut, was sie tun sollte."}},
+ {q:{en:"Do I need every test?",de:"Brauche ich jede Untersuchung?"},
+  a:{en:"No, and you will be argued out of tests you do not need. A measurement is ordered only when its result could change a decision. Broad testing without a question attached produces incidental findings and false positives, and those carry their own costs.",de:"Nein, und von Untersuchungen, die Sie nicht brauchen, werden wir Ihnen abraten. Eine Messung wird nur veranlasst, wenn ihr Ergebnis eine Entscheidung verändern könnte. Breite Diagnostik ohne zugehörige Frage erzeugt Zufallsbefunde und falsch positive Resultate, die eigene Kosten tragen."}},
+ {q:{en:"Does this replace my existing doctor?",de:"Ersetzt das meine bisherige Ärztin oder meinen bisherigen Arzt?"},
+  a:{en:"No. Your general practitioner, psychiatrist or specialists keep their role. This work is designed to connect to them, not to sit beside them. Where you prefer us not to contact anyone, that is respected and stated in the plan.",de:"Nein. Hausärztin, Psychiater oder Fachpersonen behalten ihre Rolle. Diese Arbeit ist darauf ausgelegt, sich mit ihnen zu verbinden, nicht neben ihnen zu stehen. Wenn Sie nicht möchten, dass wir jemanden kontaktieren, wird das respektiert und im Plan festgehalten."}},
+ {q:{en:"What happens if you find something outside psychiatry?",de:"Was geschieht, wenn Sie etwas ausserhalb der Psychiatrie finden?"},
+  a:{en:"It is referred to the appropriate specialty, promptly and with the findings that prompted it. Holding a medical problem inside a psychiatric frame because that is where the patient happens to be sitting is exactly the failure this model is built to avoid.",de:"Es wird zügig an das zuständige Fachgebiet überwiesen, zusammen mit den Befunden, die dazu geführt haben. Ein medizinisches Problem im psychiatrischen Rahmen zu halten, weil die Person zufällig dort sitzt, ist genau der Fehler, den dieses Modell vermeiden soll."}},
+ {q:{en:"What does precision mean here?",de:"Was bedeutet Präzision hier?"},
+  a:{en:"It means that decisions are tied to your data rather than to an average, and that both the expected effect and the point of evaluation are stated before an intervention starts. It does not mean certainty, and it does not mean more technology.",de:"Es bedeutet, dass Entscheidungen an Ihre Daten gebunden sind statt an einen Durchschnitt, und dass sowohl der erwartete Effekt als auch der Bewertungszeitpunkt vor Beginn einer Intervention festgelegt werden. Es bedeutet weder Sicherheit noch mehr Technologie."}},
+ {q:{en:"What if the first plan does not work?",de:"Was, wenn der erste Plan nicht wirkt?"},
+  a:{en:"That outcome is planned for. If the predicted change does not appear, the hypothesis that generated the prediction loses weight and the ranking is revised. A plan that fails informatively is more useful than one that is continued indefinitely on hope.",de:"Dieser Fall ist eingeplant. Bleibt die vorhergesagte Veränderung aus, verliert die zugrunde liegende Hypothese an Gewicht und die Gewichtung wird revidiert. Ein Plan, der informativ scheitert, ist nützlicher als einer, der unbegrenzt auf Hoffnung fortgeführt wird."}},
+ {q:{en:"How is my information handled?",de:"Wie wird mit meinen Daten umgegangen?"},
+  a:{en:"Clinical information is held under Swiss medical confidentiality and data protection law. The preliminary roadmap tool on this page runs entirely in your browser. Nothing you select is transmitted or stored, and no result reaches us unless you choose to describe it in a consultation request.",de:"Klinische Informationen unterliegen der ärztlichen Schweigepflicht und dem schweizerischen Datenschutzrecht. Das Roadmap-Tool auf dieser Seite läuft vollständig in Ihrem Browser. Nichts von dem, was Sie auswählen, wird übertragen oder gespeichert, und kein Ergebnis erreicht uns, solange Sie es nicht selbst in einer Terminanfrage beschreiben."}},
+ {q:{en:"What does it cost?",de:"Was kostet das?"},
+  a:{en:"Fees and the structure of engagement are discussed openly in the first conversation, before anything is booked. Pricing information will be published here once confirmed.",de:"Honorare und die Struktur der Zusammenarbeit werden im Erstgespräch offen besprochen, bevor etwas gebucht wird. Preisangaben werden hier veröffentlicht, sobald sie feststehen."}}
+];
+
+var TOOL={
+ goals:[["mood",{en:"Mood and motivation",de:"Stimmung und Antrieb"}],["anx",{en:"Anxiety and stress",de:"Angst und Stress"}],
+   ["burn",{en:"Burnout and recovery",de:"Burnout und Erholung"}],["sleep",{en:"Sleep",de:"Schlaf"}],
+   ["cog",{en:"Cognition and concentration",de:"Kognition und Konzentration"}],["energy",{en:"Energy and fatigue",de:"Energie und Erschöpfung"}],
+   ["perf",{en:"Performance and resilience",de:"Leistungsfähigkeit und Resilienz"}],["prev",{en:"Long-term brain health",de:"Langfristige Hirngesundheit"}],
+   ["unexp",{en:"Unexplained symptoms",de:"Unklare Beschwerden"}],["treat",{en:"Improving an existing treatment",de:"Eine bestehende Behandlung verbessern"}]],
+ durations:[["recent",{en:"Less than 6 months",de:"Weniger als 6 Monate"}],["mid",{en:"6 months to 2 years",de:"6 Monate bis 2 Jahre"}],
+   ["long",{en:"Longer than 2 years",de:"Länger als 2 Jahre"}],["recur",{en:"Recurring over years",de:"Über Jahre wiederkehrend"}]],
+ grid:[
+  ["sleepq",{en:"Sleep",de:"Schlaf"},[["good",{en:"Generally restorative",de:"Meist erholsam"}],["frag",{en:"Broken or light",de:"Unterbrochen oder leicht"}],["short",{en:"Too short",de:"Zu kurz"}],["late",{en:"Late or irregular timing",de:"Spät oder unregelmässig"}]]],
+  ["energyq",{en:"Energy",de:"Energie"},[["ok",{en:"Steady",de:"Stabil"}],["dip",{en:"Afternoon collapse",de:"Einbruch am Nachmittag"}],["low",{en:"Low most of the day",de:"Meist niedrig"}],["var",{en:"Highly variable",de:"Stark schwankend"}]]],
+  ["cogq",{en:"Concentration",de:"Konzentration"},[["ok",{en:"Unchanged",de:"Unverändert"}],["short",{en:"Shorter than it was",de:"Kürzer als früher"}],["eff",{en:"Needs much more effort",de:"Deutlich anstrengender"}],["mem",{en:"Memory slips too",de:"Auch Gedächtnislücken"}]]],
+  ["loadq",{en:"Demand and control",de:"Anforderung und Kontrolle"},[["ok",{en:"Manageable",de:"Bewältigbar"}],["high",{en:"High demand, some control",de:"Hohe Anforderung, etwas Kontrolle"}],["nocontrol",{en:"High demand, little control",de:"Hohe Anforderung, wenig Kontrolle"}],["change",{en:"Major life change",de:"Grosse Lebensveränderung"}]]],
+  ["moveq",{en:"Physical activity",de:"Körperliche Aktivität"},[["reg",{en:"Regular",de:"Regelmässig"}],["some",{en:"Occasional",de:"Gelegentlich"}],["none",{en:"Almost none",de:"Kaum"}],["drop",{en:"Dropped off recently",de:"Zuletzt eingeschlafen"}]]],
+  ["trendq",{en:"Compared with a year ago",de:"Im Vergleich zu vor einem Jahr"},[["better",{en:"Better",de:"Besser"}],["same",{en:"About the same",de:"Etwa gleich"}],["worse",{en:"Worse",de:"Schlechter"}],["much",{en:"Much worse",de:"Deutlich schlechter"}]]]],
+ assets:[["blood",{en:"Recent bloodwork",de:"Aktuelle Blutwerte"}],["imaging",{en:"Imaging",de:"Bildgebung"}],
+   ["cogtest",{en:"Cognitive testing",de:"Kognitive Testung"}],["wear",{en:"Wearable or sleep data",de:"Wearable- oder Schlafdaten"}],
+   ["psych",{en:"Psychiatric or psychological reports",de:"Psychiatrische oder psychologische Berichte"}],["spec",{en:"Specialist reports",de:"Facharztberichte"}]]
+};
+
+/* ---------- language ---------- */
+var UI={
+ thinking:{en:"Building your roadmap. This usually takes under a minute.",de:"Ihre Roadmap wird erstellt. Das dauert meist unter einer Minute."},
+ errGeneric:{en:"The roadmap could not be generated just now. Please try again in a moment.",de:"Die Roadmap konnte gerade nicht erstellt werden. Bitte versuchen Sie es in einem Moment erneut."},
+ errRate:{en:"Too many requests at the moment. Please try again later.",de:"Derzeit zu viele Anfragen. Bitte versuchen Sie es später erneut."},
+ needGoal:{en:"Please choose what you would most like to understand or improve.",de:"Bitte wählen Sie, was Sie am ehesten verstehen oder verbessern möchten."},
+ heads:{goal:{en:"Where you want to get to",de:"Wohin Sie möchten"},current:{en:"Where you appear to be now",de:"Wo Sie derzeit zu stehen scheinen"},
+  gap:{en:"The main gap",de:"Die zentrale Lücke"},domains:{en:"What may be shaping it",de:"Was das prägen könnte"},
+  questions:{en:"The questions worth answering first",de:"Die Fragen, die zuerst zu beantworten sind"},
+  pathway:{en:"A preliminary assessment sequence",de:"Eine vorläufige Abklärungsabfolge"},
+  outcomes:{en:"What progress would look like",de:"Woran Fortschritt zu erkennen wäre"},
+  loop:{en:"The decision loop",de:"Die Entscheidungsschleife"},
+  priorities:{en:"What we would prioritise first",de:"Was wir zuerst priorisieren würden"},
+  bring:{en:"What to bring to a consultation",de:"Was Sie zum Gespräch mitbringen sollten"}},
+ first:{en:"First",de:"Zuerst"},next:{en:"Next",de:"Danach"},onlyif:{en:"Only if indicated",de:"Nur bei Indikation"},
+ qAnswers:{en:"Question it answers",de:"Beantwortete Frage"},qWhy:{en:"Why it matters",de:"Warum es zählt"},qChange:{en:"How the result could change the plan",de:"Wie das Ergebnis den Plan verändern könnte"},
+ subj:{en:"Subjective",de:"Subjektiv"},func:{en:"Functional",de:"Funktional"},obj:{en:"Objective",de:"Objektiv"},
+ fine:{en:"This preliminary roadmap is educational and based only on the information you provided. It identifies useful questions and possible assessment priorities. It is not a diagnosis or an individualised medical treatment plan.",
+   de:"Diese vorläufige Roadmap ist edukativ und beruht ausschliesslich auf Ihren Angaben. Sie benennt nützliche Fragen und mögliche Abklärungsprioritäten. Sie ist weder eine Diagnose noch ein individueller Behandlungsplan."},
+ cta:{en:"Discuss my roadmap",de:"Meine Roadmap besprechen"},
+ ctaText:{en:"Bring your roadmap, your existing results and your goals. We can work out which questions actually need answering, what is worth measuring, and what can be left alone.",
+   de:"Bringen Sie Ihre Roadmap, Ihre vorhandenen Befunde und Ihre Ziele mit. Gemeinsam klären wir, welche Fragen tatsächlich zu beantworten sind, was sich zu messen lohnt und was man in Ruhe lassen kann."},
+ urgent:{en:"Some of what you described should be looked at quickly rather than through a roadmap. Please contact your physician today, or an emergency service if the situation is acute. In Switzerland call 144. If you are in distress and need to talk to someone now, the Dargebotene Hand is reachable on 143.",
+   de:"Ein Teil dessen, was Sie beschrieben haben, sollte rasch angeschaut werden und nicht über eine Roadmap. Bitte kontaktieren Sie heute Ihre Ärztin oder Ihren Arzt, bei akuter Situation den Notfalldienst. In der Schweiz wählen Sie 144. Wenn Sie belastet sind und jetzt mit jemandem sprechen möchten, ist die Dargebotene Hand unter 143 erreichbar."}
+};
+function T(o){return o&&o[lang]?o[lang]:(o&&o.en)||""}
+
+function setLang(next){
+  lang=next; d.documentElement.lang=next;
+  d.querySelectorAll("[data-en]").forEach(function(el){
+    var v=el.getAttribute("data-"+next); if(v===null) return;
+    if(el.hasAttribute("data-html")) el.innerHTML=v; else el.textContent=v;
+  });
+  d.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===next));});
+  paintRead(d.querySelector('.node[aria-pressed="true"]'));
+  buildMeasure(); buildFaq();
+  if(typeof W!=="undefined"&&W&&W.relang) W.relang();
+  if(typeof W!=="undefined"&&W&&W.relang) W.relang();
+  try{localStorage.setItem("bh-lang",next);}catch(e){}
+}
+d.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang);});});
+
+/* ---------- hero map ---------- */
+var readEl=d.getElementById("mapRead");
+var readDefault={en:readEl.getAttribute("data-en"),de:readEl.getAttribute("data-de")};
+function paintRead(node){
+  if(node) readEl.innerHTML=node.getAttribute("data-read-"+lang)||"";
+  else readEl.textContent=readDefault[lang];
+}
+d.querySelectorAll(".node").forEach(function(n){
+  n.addEventListener("click",function(){
+    var on=n.getAttribute("aria-pressed")==="true";
+    d.querySelectorAll(".node").forEach(function(o){o.setAttribute("aria-pressed","false");});
+    n.setAttribute("aria-pressed",on?"false":"true");
+    paintRead(on?null:n);
+  });
+});
+
+/* ---------- accordions ---------- */
+function accItem(id,title,badge,body){
+  return '<div class="acc-item"><h3 style="margin:0"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="p-'+id+'">'+
+    '<span style="flex:1;font-size:1.0625rem;font-weight:700;letter-spacing:-.02em">'+title+'</span>'+badge+
+    '<span class="sign" aria-hidden="true"></span></button></h3><div class="acc-panel" id="p-'+id+'" hidden>'+body+'</div></div>';
+}
+function lvlLabel(l){return {l1:{en:"Established",de:"Etabliert"},l2:{en:"Conditional",de:"Bedingt"},l3:{en:"Emerging",de:"Aufkommend"},l4:{en:"Exploratory",de:"Explorativ"}}[l];}
+function buildMeasure(){
+  var box=d.getElementById("measureAcc");
+  box.innerHTML=MEASURE.map(function(m){
+    var badge='<span class="lvl '+m.lvl+'">'+T(lvlLabel(m.lvl))+'</span>';
+    var body='<dl>'+
+      '<div><dt>'+T({en:"What we are trying to understand",de:"Was wir verstehen wollen"})+'</dt><dd>'+T(m.u)+'</dd></div>'+
+      '<div><dt>'+T({en:"Why it could matter",de:"Warum es relevant sein könnte"})+'</dt><dd>'+T(m.w)+'</dd></div>'+
+      '<div><dt>'+T({en:"When we would measure it",de:"Wann wir es messen"})+'</dt><dd>'+T(m.n)+'</dd></div>'+
+      '<div><dt>'+T({en:"How the result could change management",de:"Wie das Ergebnis das Vorgehen ändern kann"})+'</dt><dd>'+T(m.c)+'</dd></div></dl>';
+    return accItem("m-"+m.id,T(m.t),badge,body);
+  }).join("");
+  wireAcc(box);
+}
+function buildFaq(){
+  var box=d.getElementById("faqAcc");
+  box.innerHTML=FAQ.map(function(f,i){return accItem("f"+i,T(f.q),"","<p>"+T(f.a)+"</p>");}).join("");
+  wireAcc(box);
+}
+function wireAcc(box){
+  box.querySelectorAll(".acc-btn").forEach(function(b){
+    b.addEventListener("click",function(){
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",String(!open));
+      d.getElementById(b.getAttribute("aria-controls")).hidden=open;
+    });
+  });
+}
+
+/* ---------- citations ---------- */
+d.addEventListener("click",function(e){
+  var c=e.target.closest(".cite"); if(!c) return;
+  var ref=d.getElementById("ref-"+c.dataset.ref); if(!ref) return;
+  d.querySelectorAll(".ref").forEach(function(r){r.removeAttribute("data-hit");});
+  ref.setAttribute("data-hit","1");
+  ref.scrollIntoView({block:"center",behavior:"smooth"});
+});
+
+/* ---------- nav ---------- */
+var burger=d.querySelector(".burger"), drawer=d.getElementById("drawer");
+function closeDrawer(){drawer.classList.remove("open");burger.setAttribute("aria-expanded","false");d.body.classList.remove("locked");}
+burger.addEventListener("click",function(){
+  var open=drawer.classList.toggle("open");
+  burger.setAttribute("aria-expanded",String(open));
+  d.body.classList.toggle("locked",open);
+});
+drawer.querySelectorAll("a").forEach(function(a){a.addEventListener("click",closeDrawer);});
+d.addEventListener("keydown",function(e){if(e.key==="Escape")closeDrawer();});
+window.addEventListener("resize",function(){if(window.innerWidth>1080)closeDrawer();});
+
+var groups={problem:"model",model:"model",science:"science",evidence:"science",measure:"measure",logic:"measure",
+  decision:"measure",roadmap:"roadmap",intervention:"roadmap",response:"roadmap",who:"about",about:"about",process:"about",faq:"faq",contact:"faq"};
+var links={};
+d.querySelectorAll(".nav a").forEach(function(a){links[a.getAttribute("href").slice(1)]=a;});
+if("IntersectionObserver" in window){
+  var seen={};
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){seen[en.target.id]=en.intersectionRatio;});
+    var best=null,val=0;
+    Object.keys(seen).forEach(function(k){if(seen[k]>val){val=seen[k];best=k;}});
+    Object.keys(links).forEach(function(k){links[k].classList.remove("on");});
+    if(best&&val>0.06&&links[groups[best]]) links[groups[best]].classList.add("on");
+  },{threshold:[0,.08,.25,.5,.75,1],rootMargin:"-70px 0px -45% 0px"});
+  Object.keys(groups).forEach(function(id){var s=d.getElementById(id); if(s) io.observe(s);});
+}
+
+/* ---------- BetterHealth Preliminary Roadmap (interactive model builder) ---------- */
+/* ---------- BetterHealth preliminary map: a short curiosity tool ---------- */
+var W=(function(){
+function t(a){return lang==="de"?a[1]:a[0];}
+function esc(x){return String(x==null?"":x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function has(a,v){return a.indexOf(v)>-1;}
+
+var GOALS=[
+ ["mh","Mood and mental health","Stimmung und psychische Gesundheit",{psych:3}],
+ ["stress","Stress and resilience","Stress und Resilienz",{auto:3,env:2}],
+ ["sleep","Sleep and recovery","Schlaf und Erholung",{sleep:3}],
+ ["energy","Energy and fatigue","Energie und Erschöpfung",{metab:3,auto:1}],
+ ["cog","Concentration and clarity","Konzentration und Klarheit",{cog:3}],
+ ["perf","Performance under load","Leistung unter Belastung",{cardio:2,auto:2}],
+ ["prev","Long-term brain health","Langfristige Hirngesundheit",{neuro:2,cardio:2,cog:1}],
+ ["unsure","Something feels off","Etwas fühlt sich anders an",{}]
+];
+var SIG=[
+ ["conc","Concentration is shorter than it was","Die Konzentration hält kürzer als früher",{cog:3,sleep:1}],
+ ["fog","Thinking feels foggy or slow","Das Denken fühlt sich träge oder unklar an",{cog:2,metab:2,sleep:1}],
+ ["mem","Small things slip my memory","Kleinigkeiten entfallen mir",{cog:2,neuro:1}],
+ ["mood","Mood is lower or flatter","Die Stimmung ist gedrückter oder flacher",{psych:3,metab:1}],
+ ["anx","Tension or anxiety I cannot place","Anspannung oder Angst ohne klaren Anlass",{psych:3,auto:2}],
+ ["switch","I cannot switch off","Ich kann nicht abschalten",{auto:3,sleep:1}],
+ ["sleepq","Sleep is broken or unrefreshing","Der Schlaf ist unterbrochen oder nicht erholsam",{sleep:3,auto:1}],
+ ["early","I wake far too early","Ich wache viel zu früh auf",{sleep:3,psych:1}],
+ ["fat","Tired in a way rest does not fix","Müde auf eine Art, die Ruhe nicht behebt",{metab:3,sleep:2,endo:1}],
+ ["crash","The afternoon disappears","Der Nachmittag geht verloren",{metab:3,sleep:1}],
+ ["rec","Recovery takes longer than it used to","Die Erholung dauert länger als früher",{auto:3,cardio:1}],
+ ["ex","Exercise feels harder than it should","Sport fällt schwerer, als er sollte",{cardio:3,metab:1}],
+ ["irrit","Shorter fuse than usual","Kürzere Zündschnur als sonst",{psych:2,sleep:1}],
+ ["drop","I have quietly dropped things I used to do","Ich habe still aufgegeben, was ich früher tat",{behav:3,psych:1}],
+ ["treat","Treatment has not done what I hoped","Die Behandlung hat nicht bewirkt, was ich erhofft hatte",{meds:3,psych:1}],
+ ["none","Nothing much. I am here out of interest","Eigentlich nichts. Mich interessiert das Thema",{}],
+ ["more","I am struggling more than this can capture","Mir geht es schlechter, als das hier abbilden kann",{},"urgent"]
+];
+var WHEN=[
+ ["stress","Under pressure","Unter Druck",{auto:2,env:3}],
+ ["poorsleep","After poor sleep","Nach schlechtem Schlaf",{sleep:3}],
+ ["aft","Later in the day","Später am Tag",{metab:2}],
+ ["quiet","When I finally stop","Wenn ich endlich zur Ruhe komme",{auto:2,psych:2}],
+ ["always","More or less constantly","Mehr oder weniger dauernd",{metab:1,endo:1,neuro:1}],
+ ["nopat","No pattern I can see","Kein erkennbares Muster",{}]
+];
+var LONG=[
+ ["weeks","Weeks","Wochen",{}],
+ ["months","A few months","Einige Monate",{}],
+ ["year","About a year","Etwa ein Jahr",{metab:1,endo:1}],
+ ["longer","Longer than that","Länger",{metab:1,endo:1,neuro:1,cardio:1}]
+];
+var DOMS={
+ cog:{n:["Cognition","Kognition"],
+  o:["Worth separating what has measurably changed from what feels changed. They are not the same thing, and they lead to different plans.",
+     "Es lohnt sich zu trennen, was sich messbar verändert hat, von dem, was sich verändert anfühlt. Das ist nicht dasselbe und führt zu unterschiedlichen Plänen."],
+  q:["Has your concentration objectively changed, or is the demand on it what changed?",
+     "Hat sich Ihre Konzentration objektiv verändert, oder hat sich die Anforderung an sie verändert?"]},
+ psych:{n:["Mood and learned responses","Stimmung und gelernte Reaktionen"],
+  o:["Mood shapes what the body does next, and what the body does next shapes mood. Which way it is running matters more than the label.",
+     "Stimmung prägt, was der Körper tut, und was der Körper tut, prägt die Stimmung. In welche Richtung es läuft, zählt mehr als das Etikett."],
+  q:["Is the mood driving the physical state, or following it?","Treibt die Stimmung den körperlichen Zustand an, oder folgt sie ihm?"]},
+ sleep:{n:["Sleep and circadian rhythm","Schlaf und zirkadianer Rhythmus"],
+  o:["Sleep sits upstream of almost everything else you selected, which makes it the first thing worth ruling in or out.",
+     "Schlaf liegt fast allem anderen vor, was Sie ausgewählt haben, und ist damit das Erste, was sich zu klären lohnt."],
+  q:["Is disturbed sleep causing the daytime picture, or is it a symptom of it?","Verursacht gestörter Schlaf das Tagesbild, oder ist er ein Symptom davon?"]},
+ auto:{n:["Stress regulation and recovery","Stressregulation und Erholung"],
+  o:["The interesting question is not how activated you get, but whether the system comes back down afterwards.",
+     "Die interessante Frage ist nicht, wie stark Sie aktiviert werden, sondern ob das System danach wieder herunterkommt."],
+  q:["Does your system return to baseline when the pressure comes off?","Kehrt Ihr System zum Ausgangswert zurück, wenn der Druck nachlässt?"]},
+ metab:{n:["Energy regulation","Energieregulation"],
+  o:["The shape of your energy across a day says more than the total amount of it, and it is straightforward to look at.",
+     "Der Verlauf Ihrer Energie über den Tag sagt mehr aus als ihre Gesamtmenge, und er lässt sich einfach anschauen."],
+  q:["Is there a treatable contributor behind the fatigue that has not been excluded?","Steckt hinter der Erschöpfung eine behandelbare Ursache, die noch nicht ausgeschlossen wurde?"]},
+ endo:{n:["Hormonal regulation","Hormonelle Regulation"],
+  o:["Several of the things you selected have hormonal contributors that are simple to check and easy to overlook.",
+     "Mehrere Ihrer Angaben haben hormonelle Mitursachen, die einfach zu prüfen und leicht zu übersehen sind."],
+  q:["Has the obvious hormonal explanation been excluded?","Wurde die naheliegende hormonelle Erklärung ausgeschlossen?"]},
+ cardio:{n:["Physical capacity","Körperliche Kapazität"],
+  o:["Capacity quietly sets the ceiling on everything else, and it is one of the few things that reliably moves.",
+     "Kapazität setzt unbemerkt die Obergrenze für alles andere und gehört zu den wenigen Dingen, die sich verlässlich bewegen lassen."],
+  q:["Where does your capacity actually sit, rather than where you assume it sits?","Wo liegt Ihre Kapazität tatsächlich, statt dort, wo Sie sie vermuten?"]},
+ behav:{n:["What the week looks like","Wie die Woche aussieht"],
+  o:["What quietly got dropped is often exactly what was holding the rest of it together.",
+     "Was still weggefallen ist, war oft genau das, was den Rest zusammengehalten hat."],
+  q:["Which parts of this are realistically changeable inside your actual week?","Welche Teile davon sind in Ihrer realen Woche tatsächlich veränderbar?"]},
+ env:{n:["Demand and environment","Anforderung und Umgebung"],
+  o:["When things lift as soon as demand drops, the environment is doing more of the work than anything internal.",
+     "Wenn sich alles bessert, sobald die Anforderung sinkt, trägt die Umgebung mehr bei als jeder interne Faktor."],
+  q:["How much of this is the situation, and how much has become self-sustaining?","Wie viel davon ist die Situation, und wie viel hat sich verselbstständigt?"]},
+ meds:{n:["Treatment response","Behandlungsansprechen"],
+  o:["An incomplete response is information. It narrows the explanation rather than simply calling for more of the same.",
+     "Ein unvollständiges Ansprechen ist Information. Es engt die Erklärung ein, statt einfach mehr vom Gleichen zu verlangen."],
+  q:["What did the treatment predict would change, and did it?","Was sollte sich unter der Behandlung verändern, und ist es eingetreten?"]},
+ neuro:{n:["Long-term brain health","Langfristige Hirngesundheit"],
+  o:["This is the part where a baseline taken now is worth considerably more than the same measurement taken later.",
+     "Hier ist ein jetzt erhobener Ausgangswert deutlich mehr wert als dieselbe Messung später."],
+  q:["What is your modifiable risk, separated from what is merely measurable?","Was ist Ihr veränderbares Risiko, getrennt von dem, was lediglich messbar ist?"]}
+};
+
+/* ---------- state ---------- */
+var S={goals:[],sig:[],when:[],long:"",goalText:""}, step=0, mount=d.getElementById("wiz");
+var sampleReady=null, aiText="", aiState="";
+var U={
+ kick:["Interactive","Interaktiv"],
+ title:["What is shaping your state?","Was prägt Ihren Zustand?"],
+ intro:["Three questions, about a minute, and you will see which systems your pattern makes worth looking at, and the questions we would want answered. It is a thinking tool, not an assessment.",
+        "Drei Fragen, etwa eine Minute, und Sie sehen, welche Systeme Ihr Muster interessant macht und welche Fragen wir beantwortet haben wollten. Ein Denkwerkzeug, keine Abklärung."],
+ start:["Start","Beginnen"],next:["Next","Weiter"],back:["Back","Zurück"],again:["Start again","Neu beginnen"],
+ build:["Building your model","Ihr Modell entsteht"],
+ crumbs:[["Goal","Ziel"],["Signals","Signale"],["Pattern","Muster"]],
+ q1:["What would you most like to improve?","Was möchten Sie am ehesten verbessern?"],
+ q1s:["Choose one or two.","Wählen Sie eines oder zwei."],
+ q1t:["And in your own words: if this were meaningfully better in a year, what would be different?",
+      "Und in Ihren eigenen Worten: Wenn das in einem Jahr deutlich besser wäre, was wäre dann anders?"],
+ q1th:["One or two lines is enough. Something you would be able to do again, or stop having to work around.",
+       "Ein oder zwei Zeilen genügen. Etwas, das Sie wieder tun könnten, oder etwas, das Sie nicht mehr umgehen müssten."],
+ yourGoal:["Your goal, in your words","Ihr Ziel, in Ihren Worten"],
+ aiWait:["Reading that against your answers","Wird gegen Ihre Antworten gelesen"],
+ q2:["What are you noticing?","Was nehmen Sie wahr?"],
+ q2s:["Pick whatever applies. Three or four is plenty.","Wählen Sie, was zutrifft. Drei oder vier genügen."],
+ q3:["When is it most obvious?","Wann ist es am deutlichsten?"],
+ q3s:["And roughly how long has it been like this?","Und wie lange ist das ungefähr schon so?"],
+ see:["See what this points at","Zeigen, worauf das deutet"],
+ resTitle:["What your answers point at","Worauf Ihre Antworten deuten"],
+ resSub:["Several systems can produce the same experience. These three are worth looking at first.",
+         "Mehrere Systeme können dasselbe Erleben erzeugen. Diese drei lohnen sich zuerst."],
+ worth:["Worth looking at","Lohnt den Blick"],
+ goal:["Your goal","Ihr Ziel"],
+ qs:["What we would want answered","Was wir beantwortet haben wollten"],
+ endT:["This is as far as a web page can take it","Weiter kommt eine Webseite nicht"],
+ endP:["Which of these actually explains your situation is a conversation. Your answers come with you into the form.",
+       "Welche davon Ihre Situation tatsächlich erklärt, ist ein Gespräch. Ihre Angaben werden ins Formular übernommen."],
+ cta:["Discuss this with us","Das mit uns besprechen"],
+ fine:["A curiosity tool, not a medical assessment, and not a diagnosis. Nothing is stored here. Where the short summary is written, your text is sent to the model that writes it.",
+       "Ein Neugier-Werkzeug, keine medizinische Abklärung und keine Diagnose. Hier wird nichts gespeichert. Wo die kurze Zusammenfassung entsteht, wird Ihr Text an das Modell übermittelt, das sie schreibt."],
+ carry:["Your answers and your own wording will be carried into the form, so you do not have to type them again.",
+        "Ihre Angaben und Ihre eigene Formulierung werden in das Formular übernommen, damit Sie sie nicht erneut eintippen müssen."],
+ urgT:["Please talk to someone rather than a web page","Bitte sprechen Sie mit jemandem statt mit einer Webseite"],
+ urgP:["If things are worse than this tool can hold, that deserves a person, not a map. Contact your physician today, or an emergency service if it is acute. In Switzerland the emergency number is 144, and the Dargebotene Hand is reachable on 143 at any hour.",
+       "Wenn es schlechter steht, als dieses Werkzeug abbilden kann, verdient das einen Menschen und keine Karte. Kontaktieren Sie heute Ihre Ärztin oder Ihren Arzt, bei akuter Lage den Notfalldienst. In der Schweiz ist die Notrufnummer 144, die Dargebotene Hand ist rund um die Uhr unter 143 erreichbar."]
+};
+
+function card(name,id,label,checked,type){
+ return '<label class="card-opt"><input type="'+type+'" name="'+name+'" value="'+id+'"'+(checked?" checked":"")+
+  '><span class="box"><b>'+esc(label)+"</b></span></label>";
+}
+function chip(name,id,label,checked){
+ return '<label class="chip"><input type="checkbox" name="'+name+'" value="'+id+'"'+(checked?" checked":"")+
+  '><span>'+esc(label)+"</span></label>";
+}
+function crumbs(){
+ return '<div class="wiz-crumbs">'+U.crumbs.map(function(c,i){
+  var cls=step===i+1?"crumb on":(step>i+1?"crumb done":"crumb");
+  return '<span class="'+cls+'">'+esc(t(c))+"</span>";}).join("")+"</div>";
+}
+function frame(inner,o){
+ o=o||{};
+ var nav='<div class="wiz-nav">'+(o.back===false?"":'<button class="btn btn-ghost" type="button" data-act="back">'+esc(t(U.back))+"</button>")+
+  '<button class="btn btn-primary" type="button" data-act="next">'+esc(t(o.label||U.next))+"</button>"+
+  (o.count?'<span class="count">'+esc(o.count)+"</span>":"")+"</div>";
+ mount.innerHTML='<div class="wiz-bar"><p class="tag">'+esc(t(U.build))+"</p>"+crumbs()+"</div>"+
+  '<div class="wiz-step">'+inner+"</div>"+nav;
+}
+function head(q,s){return '<h3 class="wiz-q">'+esc(q)+"</h3>"+(s?'<p class="wiz-sub">'+esc(s)+"</p>":"");}
+
+function scrIntro(){
+ mount.innerHTML='<div class="wiz-bar"><p class="tag">'+esc(t(U.kick))+'</p></div><div class="wiz-step">'+
+  '<h3 class="wiz-q">'+esc(t(U.title))+'</h3><p class="wiz-sub">'+esc(t(U.intro))+"</p>"+
+  '<button class="btn btn-primary" type="button" data-act="next">'+esc(t(U.start))+"</button></div>";
+}
+function scr1(){
+ frame(head(t(U.q1),t(U.q1s))+'<div class="cards">'+
+  GOALS.map(function(g){return card("goal",g[0],t([g[1],g[2]]),has(S.goals,g[0]),"checkbox");}).join("")+"</div>"+
+  '<div class="grp" style="margin-top:30px"><h4>'+esc(t(U.q1t))+'</h4>'+
+  '<div class="f" style="margin:0"><textarea id="wGoalText" rows="3">'+esc(S.goalText)+'</textarea>'+
+  '<p class="hint">'+esc(t(U.q1th))+"</p></div></div>",
+  {back:false,count:S.goals.length+"/2"});
+ var ta=d.getElementById("wGoalText");
+ if(ta) ta.addEventListener("input",function(){S.goalText=ta.value;});
+}
+function scr2(){
+ frame(head(t(U.q2),t(U.q2s))+'<div class="chipset">'+
+  SIG.map(function(x){return chip("sig",x[0],t([x[1],x[2]]),has(S.sig,x[0]));}).join("")+"</div>");
+}
+function scr3(){
+ frame(head(t(U.q3))+'<div class="chipset">'+
+  WHEN.map(function(x){return chip("when",x[0],t([x[1],x[2]]),has(S.when,x[0]));}).join("")+"</div>"+
+  '<div class="grp" style="margin-top:28px"><h4>'+esc(t(U.q3s))+'</h4><div class="chipset">'+
+  LONG.map(function(x){return '<label class="chip"><input type="radio" name="long" value="'+x[0]+'"'+
+    (S.long===x[0]?" checked":"")+'><span>'+esc(t([x[1],x[2]]))+"</span></label>";}).join("")+"</div></div>",
+  {label:U.see});
+}
+
+/* ---------- engine ---------- */
+function addW(sc,w){ if(w) for(var k in w) sc[k]=(sc[k]||0)+w[k]; }
+function pick(list,id){for(var i=0;i<list.length;i++) if(list[i][0]===id) return list[i]; return null;}
+function ranked(){
+ var sc={};
+ S.goals.forEach(function(id){var x=pick(GOALS,id); if(x) addW(sc,x[3]);});
+ S.sig.forEach(function(id){var x=pick(SIG,id); if(x) addW(sc,x[3]);});
+ S.when.forEach(function(id){var x=pick(WHEN,id); if(x) addW(sc,x[3]);});
+ var l=pick(LONG,S.long); if(l) addW(sc,l[3]);
+ if(has(S.sig,"none")) addW(sc,{neuro:2,cardio:2,cog:1});
+ var out=[];
+ for(var k in sc) if(sc[k]>0) out.push([k,sc[k]]);
+ out.sort(function(a,b){return b[1]-a[1]||a[0].localeCompare(b[0]);});
+ return out.map(function(x){return x[0];});
+}
+function goalLabel(){
+ if(!S.goals.length) return t(["A clearer picture","Ein klareres Bild"]);
+ return S.goals.map(function(id){var g=pick(GOALS,id); return g?t([g[1],g[2]]):"";}).join(" · ");
+}
+function summary(){
+ var lbl=function(list,ids){return ids.map(function(i){var x=pick(list,i);return x?t([x[1],x[2]]):"";}).filter(Boolean).join(", ");};
+ var l=pick(LONG,S.long);
+ return [
+  t(["Goal","Ziel"])+": "+lbl(GOALS,S.goals),
+  t(["In their words","In eigenen Worten"])+": "+(S.goalText.trim()||"-"),
+  t(["Noticing","Wahrgenommen"])+": "+lbl(SIG,S.sig),
+  t(["Worse when","Deutlicher bei"])+": "+(lbl(WHEN,S.when)||"-"),
+  t(["Duration","Dauer"])+": "+(l?t([l[1],l[2]]):"-")
+ ].join("\n");
+}
+function askAI(top){
+ var ta=d.getElementById("aiSlot"); if(!ta) return;
+ if(!S.goalText.trim()){ ta.parentNode.removeChild(ta); return; }
+ var names=top.map(function(k){return t(DOMS[k].n);}).join(", ");
+ var pr=[
+  "You write one short paragraph for a physician-led brain and mental health practice, shown to a visitor who has just used a short interactive tool.",
+  "Take what the person wrote about their own goal and connect it to the systems the tool highlighted. Reflect their own wording back rather than restating the list.",
+  "Rules: two to three sentences. No diagnosis, no advice, no treatment, no medication, no promises, no marketing language. Do not claim to know what is wrong. Use "+(lang==="de"?"German, Swiss orthography with ss instead of ss-ligature, formal Sie":"English, British spelling")+". No em dashes, no semicolons. Plain paragraph, no heading, no quotation marks.",
+  "",
+  "What they wrote as their goal: "+S.goalText.trim(),
+  "Their selections: "+summary(),
+  "Systems the tool highlighted: "+names
+ ].join("\n");
+ ta.innerHTML='<p class="wiz-sub" style="margin:0"><em>'+esc(t(U.aiWait))+"</em></p>";
+ sampleReady.then(function(sm){
+  if(!sm){ ta.parentNode.removeChild(ta); return; }
+  sm(pr,{modelTier:"quick",cache:false}).then(function(r){
+   var txt=(r&&r.text||"").trim();
+   if(!txt){ ta.parentNode.removeChild(ta); return; }
+   aiText=txt; ta.innerHTML="<p>"+esc(txt)+"</p>";
+  }).catch(function(){ if(ta.parentNode) ta.parentNode.removeChild(ta); });
+ });
+}
+function renderResult(){
+ var top=ranked().slice(0,3);
+ if(!top.length) top=["auto","sleep","cog"];
+ var nodes=top.map(function(k){return '<div class="snode p1"><b>'+esc(t(DOMS[k].n))+'</b><span>'+esc(t(U.worth))+"</span></div>";});
+ var html='<div class="wiz-bar"><p class="tag">'+esc(t(U.kick))+"</p></div><div class=\"wiz-step\">"+
+  '<div class="res-head"><h3>'+esc(t(U.resTitle))+"</h3><p>"+esc(t(U.resSub))+"</p></div>"+
+  '<div class="smap"><div class="smap-side">'+nodes.slice(0,2).join("")+"</div>"+
+   '<div class="smap-core"><div class="from">'+esc(t(U.goal))+'</div><div class="to">'+esc(goalLabel())+"</div></div>"+
+   '<div class="smap-side">'+(nodes[2]||"")+"</div></div>"+
+  (S.goalText.trim()?'<div class="res-block"><h4>'+esc(t(U.yourGoal))+'</h4>'+
+    '<p class="obs" style="font-size:1.0625rem;line-height:1.6;margin:0">'+esc(S.goalText.trim())+"</p>"+
+    '<div id="aiSlot" style="margin-top:14px"></div></div>':"")+
+  '<div class="res-block"><h4>'+esc(t(U.qs))+"</h4>"+
+   top.map(function(k,i){return '<div class="unk"><span class="n">0'+(i+1)+'</span><p>'+esc(t(DOMS[k].q))+"</p></div>";}).join("")+"</div>"+
+  '<div class="res-end"><h4>'+esc(t(U.endT))+"</h4><p>"+esc(t(U.endP))+"</p>"+
+   '<div class="btn-row"><button class="btn btn-primary" type="button" data-act="carry">'+esc(t(U.cta))+"</button>"+
+   '<button class="btn btn-ghost" type="button" data-act="restart">'+esc(t(U.again))+"</button></div>"+
+   '<p class="res-fine">'+esc(t(U.fine))+"</p></div></div>";
+ mount.innerHTML=html;
+ askAI(top);
+ mount.scrollIntoView({block:"start",behavior:"smooth"});
+}
+function renderUrgent(){
+ mount.innerHTML='<div class="wiz-step"><div class="urgent"><h3>'+esc(t(U.urgT))+"</h3><p>"+esc(t(U.urgP))+"</p>"+
+  '<div class="btn-row" style="margin-top:20px"><a class="btn btn-primary" href="#contact">'+esc(t(U.cta))+"</a>"+
+  '<button class="btn btn-ghost" type="button" data-act="restart">'+esc(t(U.again))+"</button></div></div></div>";
+ mount.scrollIntoView({block:"start",behavior:"smooth"});
+}
+sampleReady=(window.claude&&typeof window.claude.use==="function")
+  ? window.claude.use("sample").catch(function(){return null;})
+  : Promise.resolve(null);
+
+function render(){
+ if(step===0) return scrIntro();
+ if(step===1) return scr1();
+ if(step===2) return scr2();
+ if(step===3) return scr3();
+ if(has(S.sig,"more")) return renderUrgent();
+ renderResult();
+}
+mount.addEventListener("change",function(e){
+ var n=e.target.name,v=e.target.value,on=e.target.checked;
+ function multi(arr,lim){
+  var i=arr.indexOf(v);
+  if(on&&i<0){ if(lim&&arr.length>=lim){e.target.checked=false;return;} arr.push(v); }
+  if(!on&&i>-1) arr.splice(i,1);
+ }
+ if(n==="goal"){ multi(S.goals,2); scr1(); }
+ else if(n==="sig"){ multi(S.sig); }
+ else if(n==="when"){ multi(S.when); }
+ else if(n==="long"){ S.long=v; }
+});
+mount.addEventListener("click",function(e){
+ var b=e.target.closest("[data-act]"); if(!b) return;
+ var a=b.dataset.act;
+ if(a==="carry"){
+  var box=d.getElementById("f-msg");
+  if(box){
+   var lines=[];
+   if(S.goalText.trim()) lines.push(t(["What I would like to be different:","Was anders sein sollte:"])+"\n"+S.goalText.trim());
+   lines.push(t(["From the preliminary map:","Aus der vorläufigen Karte:"])+"\n"+summary());
+   if(aiText) lines.push(aiText);
+   box.value=lines.join("\n\n");
+   box.dispatchEvent(new Event("input",{bubbles:true}));
+  }
+  var c=d.getElementById("contact");
+  if(c) c.scrollIntoView({behavior:"smooth",block:"start"});
+  setTimeout(function(){ var n=d.getElementById("f-name"); if(n) n.focus(); },700);
+  return;
+ }
+ if(a==="restart"){ S={goals:[],sig:[],when:[],long:"",goalText:""}; aiText=""; step=0; return render(); }
+ if(a==="back"){ step=Math.max(0,step-1); return render(); }
+ if(a==="next"){
+  if(step===1&&!S.goals.length) return;
+  if(step===2&&!S.sig.length) return;
+  step++; render();
+ }
+});
+render();
+return {relang:function(){render();}};
+})();
+
+
+
+/* ---------- enquiry form ---------- */
+var ef=d.getElementById("enquiry"), fmsg=d.getElementById("formMsg");
+var FM={required:{en:"Please complete the highlighted fields.",de:"Bitte füllen Sie die markierten Felder aus."},
+  email:{en:"Please enter a valid email address.",de:"Bitte geben Sie eine gültige E-Mail-Adresse ein."},
+  consent:{en:"Please confirm the consent checkbox.",de:"Bitte bestätigen Sie die Einwilligung."},
+  sent:{en:"Your request is ready in your mail app. Send it and a physician will reply personally.",de:"Ihre Anfrage ist in Ihrer Mail-App vorbereitet. Senden Sie sie ab, eine Ärztin oder ein Arzt antwortet persönlich."}};
+function say(kind,key){ fmsg.className="msg show "+kind; fmsg.textContent=T(FM[key]); }
+ef.addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=d.getElementById("f-name"),m=d.getElementById("f-mail"),t=d.getElementById("f-tel"),
+      x=d.getElementById("f-msg"),c=d.getElementById("f-consent");
+  [n,m,x].forEach(function(f){f.classList.remove("bad");});
+  var miss=[n,m,x].filter(function(f){return !f.value.trim();});
+  if(miss.length){ miss.forEach(function(f){f.classList.add("bad");}); miss[0].focus(); return say("err","required"); }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim())){ m.classList.add("bad"); m.focus(); return say("err","email"); }
+  if(!c.checked){ c.focus(); return say("err","consent"); }
+  var body="Name: "+n.value.trim()+"\nEmail: "+m.value.trim()+"\nPhone: "+(t.value.trim()||"-")+"\n\n"+x.value.trim()+"\n";
+  window.location.href="mailto:hello@betterhealth.ch?subject="+encodeURIComponent("Consultation request: "+n.value.trim())+"&body="+encodeURIComponent(body);
+  say("ok","sent");
+});
+
+/* ---------- reveal on scroll ---------- */
+if("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+  var rvTargets=[];
+  d.querySelectorAll("section > .shell > *").forEach(function(el){
+    if(el.classList.contains("rail")||el.id==="wiz") return;
+    el.classList.add("rv"); rvTargets.push(el);
+  });
+  d.querySelectorAll(".rail").forEach(function(el){ el.classList.add("rv"); rvTargets.push(el); });
+  var rio=new IntersectionObserver(function(es){
+    es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); rio.unobserve(en.target); } });
+  },{rootMargin:"0px 0px -8% 0px",threshold:.04});
+  rvTargets.forEach(function(el){ rio.observe(el); });
+}
+
+/* ---------- init ---------- */
+d.getElementById("yr").textContent=new Date().getFullYear();
+buildMeasure(); buildFaq();
+var saved=null; try{saved=localStorage.getItem("bh-lang");}catch(e){}
+setLang(saved==="de"?"de":"en");
+
+})();
+</script>
+</body>
+</html>
