@@ -1,17 +1,17 @@
 # BetterHealth website
 
-One self-contained page: `index.html`. HTML, CSS and JavaScript are all in that single file — nothing to build, bundle, or npm install. Open it directly in a browser, or upload it as-is to any static host, including GitHub Pages.
+This repository contains the BetterHealth website, separate from Curavita.
 
-`information-architecture.md` is the planning document behind the page's structure and copy sequence.
+The site is a self-contained HTML/CSS/JavaScript page. For reliable transfer into GitHub, the source HTML is stored as compressed chunks under `site-parts/`; `scripts/build-site.mjs` reconstructs the page during deployment.
 
-## Before this goes live
-
-Search the page for `to be confirmed`, `to be completed`, and `to be supplied` for remaining content placeholders. The contact form currently opens the visitor's mail app with a prefilled message. Legal pages still need to be added before production publication.
-
-## Interactive roadmap
-
-The roadmap logic itself runs entirely in the browser. The optional AI-written reflection paragraph needs a separate server endpoint on a normal website because `window.claude` only exists inside a Claude artifact. Search `var ROADMAP_ENDPOINT=""` in `index.html` when that backend is ready.
+The current version includes the mobile timeline layout fix so process text remains in the readable content column on small screens.
 
 ## Deployment
 
-This repository deploys the static site to the `gh-pages` branch via GitHub Actions. The main source file is `index.html`.
+A GitHub Actions workflow builds the site and publishes the finished `index.html` and `404.html` to the `gh-pages` branch.
+
+## Before production publication
+
+The page still contains content placeholders such as `to be confirmed`, `to be completed`, and `to be supplied`. Legal pages and final contact-form handling should also be completed before a production launch.
+
+The interactive roadmap runs in the browser. Its optional AI-written reflection paragraph requires a separate server endpoint outside the original artifact environment.
