@@ -1,31 +1,35 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { gunzipSync } from 'node:zlib';
-
-const urls = Array.from({ length: 11 }, (_, i) =>
-  new URL(`../site-parts/site.part${String(i).padStart(2, '0')}`, import.meta.url)
-);
-const parts = await Promise.all(urls.map((url) => readFile(url)));
-
-let html = gunzipSync(Buffer.concat(parts)).toString('utf8');
-
-/*
- * BetterHealth brand accent.
- * Preserve the neutral editorial palette and replace only the former gold
- * accent system with BetterHealth teal.
- */
-html = html
-  .replaceAll('#D4AF37', '#029781')
-  .replaceAll('#d4af37', '#029781')
-  .replaceAll('rgba(212,175,55,.14)', 'rgba(2,151,129,.14)')
-  .replaceAll('rgba(212,175,55,.12)', 'rgba(2,151,129,.12)')
-  .replaceAll('rgba(212, 175, 55, .14)', 'rgba(2, 151, 129, .14)')
-  .replaceAll('rgba(212, 175, 55, .12)', 'rgba(2, 151, 129, .12)');
-
-const dist = new URL('../dist/', import.meta.url);
-
-await mkdir(dist, { recursive: true });
-await writeFile(new URL('index.html', dist), html);
-await writeFile(new URL('404.html', dist), html);
-await writeFile(new URL('.nojekyll', dist), '');
-
-console.log(`Built BetterHealth website (${Buffer.byteLength(html).toLocaleString()} bytes).`);
+import {mkdir,writeFile,cp,rm,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {makePages,routes} from '../src/pages.mjs';
+const base='/betterhealth-new-website/';
+const origin='https://hendrivi.github.io';
+const out=new URL('../dist/',import.meta.url);
+const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const logo='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v26M3 16h26" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>';
+const version=createHash('sha256').update(await readFile(new URL('../public/assets/site.css',import.meta.url))).update(await readFile(new URL('../public/assets/site.js',import.meta.url))).digest('hex').slice(0,10);
+await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});await cp(new URL('../public/',import.meta.url),out,{recursive:true});
+const urls=[];
+for(const lang of ['en','de']){
+ const t=(en,de)=>lang==='de'?de:en;
+ const {pages,labels,url}=makePages(lang,base);
+ const nav=['individuals','organisations','learn','about'];
+ const footerCol=(title,ids)=>`<div><h3>${title}</h3><ul>${ids.map(id=>`<li><a href="${url(id)}">${labels[id]}</a></li>`).join('')}</ul></div>`;
+ for(const page of Object.values(pages)){
+  const canonical=origin+url(page.id);
+  const english=origin+base+routes[page.id]+(routes[page.id]?'/':'');
+  const german=origin+base+'de/'+routes[page.id]+(routes[page.id]?'/':'');
+  const alternate=lang==='en'?german:english;
+  const title=`${page.title} | BetterHealth`;
+  const crumbs=page.id==='home'?'':`<nav class="container breadcrumbs" aria-label="${t('Breadcrumb','Brotkrumennavigation')}"><a href="${url('home')}">${labels.home}</a><span aria-hidden="true">/</span>${page.group!==page.id&&pages[page.group]?`<a href="${url(page.group)}">${labels[page.group]}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${page.label}</span></nav>`;
+  const schema={'@context':'https://schema.org','@type':'WebPage',name:page.title,description:page.description,url:canonical,inLanguage:lang,isPartOf:{'@type':'WebSite',name:'BetterHealth',url:origin+base}};
+  const html=`<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(page.description)}"><meta name="theme-color" content="#173d36"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${english}"><link rel="alternate" hreflang="de" href="${german}"><link rel="alternate" hreflang="x-default" href="${english}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(page.description)}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="BetterHealth"><meta property="og:locale" content="${lang==='de'?'de_CH':'en_GB'}"><meta name="twitter:card" content="summary"><link rel="icon" href="${base}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}assets/site.css?v=${version}"><script src="${base}assets/site.js?v=${version}" defer></script><script type="application/ld+json">${JSON.stringify(schema).replaceAll('<','\\u003c')}</script><noscript><style>.nav{display:flex;position:static;max-height:none}.header-row{height:auto;min-height:88px;flex-wrap:wrap}.menu-toggle{display:none}@media(max-width:900px){.nav{width:100%;padding:15px 0;box-shadow:none}.site-header{position:static}}</style></noscript></head><body><a href="#main" class="skip">${t('Skip to content','Zum Inhalt springen')}</a><header class="site-header"><div class="container header-row"><a href="${url('home')}" class="brand" aria-label="BetterHealth ${labels.home}">${logo}BetterHealth</a><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">${t('Menu','Menü')}</button><nav class="nav" id="main-navigation" aria-label="${t('Main navigation','Hauptnavigation')}">${nav.map(id=>`<a href="${url(id)}" ${page.group===id?'aria-current="page"':''}>${labels[id]}</a>`).join('')}<a class="language" href="${alternate}" lang="${lang==='en'?'de':'en'}" hreflang="${lang==='en'?'de':'en'}" aria-label="${t('Diese Seite auf Deutsch','Read this page in English')}">${lang==='en'?'DE':'EN'}</a><a class="button" href="${url('contact',page.group==='organisations'?'?interest=corporate':'')}">${t('Let’s talk','Kontakt')}</a></nav></div></header>${crumbs}<main id="main">${page.body}</main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="${url('home')}">${logo}BetterHealth</a><p>${t('Understand what shapes you.<br>Change what you can.','Verstehen, was Sie prägt.<br>Verändern, was möglich ist.')}</p><p>${t('Switzerland<br>German & English','Schweiz<br>Deutsch & Englisch')}</p></div>${footerCol(t('For you','Für Sie'),['individuals','approach','assessment','roadmap','faq'])}${footerCol(t('For organisations','Für Unternehmen'),['organisations','workshop','contact'])}${footerCol(t('Explore','Entdecken'),['learn','science','courses','social','about'])}</div><div class="footer-bottom"><span>© 2026 BetterHealth</span><span><a href="${url('privacy')}">${labels.privacy}</a><a href="${url('legal')}">${labels.legal}</a><a href="mailto:hello@betterhealth.ch">hello@betterhealth.ch</a></span></div></div></footer></body></html>`;
+  const file=(lang==='de'?'de/':'')+routes[page.id]+(routes[page.id]?'/':'')+'index.html';
+  const dest=new URL(file,out);await mkdir(new URL('./',dest),{recursive:true});await writeFile(dest,html);urls.push({canonical,english,german});
+ }
+}
+const errorHTML=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found | BetterHealth</title><link rel="stylesheet" href="${base}assets/site.css"></head><body><main class="container section narrow"><p class="eyebrow">BetterHealth / 404</p><h1>Let’s find your next step.</h1><p>This page could not be found. Explore BetterHealth or get in touch.</p><div class="actions"><a class="button" href="${base}">Back to BetterHealth ↗</a><a class="text-link" href="${base}contact/">Contact us ↗</a></div><hr><p>Diese Seite wurde nicht gefunden.</p><a href="${base}de/">Zur deutschen Startseite ↗</a></main></body></html>`;
+await writeFile(new URL('404.html',out),errorHTML);
+await writeFile(new URL('.nojekyll',out),'');
+await writeFile(new URL('sitemap.xml',out),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${urls.map(({canonical,english,german})=>`<url><loc>${canonical}</loc><xhtml:link rel="alternate" hreflang="en" href="${english}"/><xhtml:link rel="alternate" hreflang="de" href="${german}"/></url>`).join('')}</urlset>`);
+await writeFile(new URL('robots.txt',out),`User-agent: *\nAllow: /\nSitemap: ${origin}${base}sitemap.xml\n`);
+console.log(`Built ${urls.length} content pages, 404, sitemap and local assets.`);
