@@ -6,3 +6,6 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{.site-header,.site-footer,.cta,.actions,.article-nav,.subnav,.filters,.breadcrumbs,.menu-toggle,.share-row{display:none!important}body{background:white;color:black;font-size:11pt}.container{width:100%}.section,.hero,.page-hero{padding:15px 0}.hero.home{background:white;color:black}.hero.home p{color:black}.grid,.split,.intro{display:block}.card{break-inside:avoid;margin-bottom:12px}.article-layout{display:block}a{color:black}.model{display:none}}
 h1,h2,h3,p,li,.button{overflow-wrap:break-word;hyphens:auto}.grid>* ,.split>* ,.hero-grid>*{min-width:0}
+
+/* Original BetterHealth diamond and uppercase wordmark. */
+.brand{gap:12px;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:.14em;font-size:.8125rem;text-transform:uppercase;white-space:nowrap}.brand svg{display:block;flex:none;width:18px;height:18px}

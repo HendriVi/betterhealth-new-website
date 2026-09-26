@@ -5,7 +5,7 @@ const base='/betterhealth-new-website/';
 const origin='https://hendrivi.github.io';
 const out=new URL('../dist/',import.meta.url);
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const logo='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3v26M3 16h26" stroke="currentColor" stroke-width="2"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>';
+const logo='<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><rect x="9" y="1.2" width="11" height="11" transform="rotate(45 9 1.2)" fill="none" stroke="currentColor" stroke-width="1"/><rect x="6.8" y="6.8" width="4.4" height="4.4" fill="#029781"/></svg>';
 const version=createHash('sha256').update(await readFile(new URL('../public/assets/site.css',import.meta.url))).update(await readFile(new URL('../public/assets/site.js',import.meta.url))).digest('hex').slice(0,10);
 await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});await cp(new URL('../public/',import.meta.url),out,{recursive:true});
 const urls=[];
