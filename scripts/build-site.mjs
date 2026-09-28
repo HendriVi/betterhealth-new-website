@@ -1,4 +1,5 @@
 import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
+import {improveRoadmapUX} from './roadmap-ux.mjs';
 import {makePages} from '../src/pages.mjs';
 const original=await readFile('src/original-site.html','utf8');
 const base='/betterhealth-new-website/',origin='https://hendrivi.github.io';
@@ -22,6 +23,7 @@ var interest=d.getElementById("interest");
 if(interest&&new URLSearchParams(window.location.search).get("interest")==="corporate")interest.value="corporate";
 /* ---------- init ---------- */`);
 js=js.replace('"Consultation request: "+n.value.trim()', '(d.getElementById("interest")&&d.getElementById("interest").value==="corporate"?"Corporate education enquiry: ":"Consultation request: ")+n.value.trim()');
+js=improveRoadmapUX(js);
 const sections={};for(const m of original.matchAll(/<section\b[\s\S]*?<\/section>/g)){const id=m[0].match(/^<section[^>]*id="([^"]+)"/)?.[1]||'hero';sections[id]=m[0];}
 sections.contact=sections.contact.replace('<form class="form" id="enquiry" novalidate>', '<form class="form" id="enquiry" novalidate><div class="f"><label for="interest" data-en="Enquiry about" data-de="Anfrage zu">Enquiry about</label><select id="interest"><option value="individual" data-en="Individual consultation" data-de="Persönliches Erstgespräch">Individual consultation</option><option value="corporate" data-en="Corporate education" data-de="Wissensvermittlung im Unternehmen">Corporate education</option></select></div>');
 let header=original.slice(original.indexOf('<div class="gridlines"'),original.indexOf('<main'));
@@ -73,7 +75,7 @@ if(id==='roadmap')content=content.replaceAll(`href="${url('contact')}#contact"`,
 const en=base+(id==='home'?'':id+'/'),de=base+'de/'+(id==='home'?'':id+'/');
 const title=c[lang==='de'?1:0]+' | BetterHealth';
 await mkdir('dist/'+(lang==='de'?'de/':'')+(id==='home'?'':id+'/'),{recursive:true});
-await writeFile('dist/'+(lang==='de'?'de/':'')+(id==='home'?'':id+'/')+'index.html',`<!doctype html><html lang="${lang}" data-en-url="${en}" data-de-url="${de}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(c[lang==='de'?1:0])} — BetterHealth. ${t('Brain and mental health.','Hirn- und psychische Gesundheit.')}"><meta name="theme-color" content="#1A1A1A"><link rel="canonical" href="${origin+url(id)}"><link rel="alternate" hreflang="en" href="${origin+en}"><link rel="alternate" hreflang="de" href="${origin+de}"><link rel="icon" href="${base}assets/favicon.svg"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="${base}assets/site.css?v=original-3"><script src="${base}assets/site.js?v=original-3" defer></script><noscript><style>.drawer{display:flex;position:static;visibility:visible;opacity:1;transform:none;height:auto;padding:32px;gap:16px}.burger{display:none}</style></noscript></head><body>${content}</body></html>`);urls.push(origin+url(id));
+await writeFile('dist/'+(lang==='de'?'de/':'')+(id==='home'?'':id+'/')+'index.html',`<!doctype html><html lang="${lang}" data-en-url="${en}" data-de-url="${de}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(c[lang==='de'?1:0])} — BetterHealth. ${t('Brain and mental health.','Hirn- und psychische Gesundheit.')}"><meta name="theme-color" content="#1A1A1A"><link rel="canonical" href="${origin+url(id)}"><link rel="alternate" hreflang="en" href="${origin+en}"><link rel="alternate" hreflang="de" href="${origin+de}"><link rel="icon" href="${base}assets/favicon.svg"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="${base}assets/site.css?v=original-4"><script src="${base}assets/site.js?v=original-4" defer></script><noscript><style>.drawer{display:flex;position:static;visibility:visible;opacity:1;transform:none;height:auto;padding:32px;gap:16px}.burger{display:none}</style></noscript></head><body>${content}</body></html>`);urls.push(origin+url(id));
 }}
 await writeFile('dist/.nojekyll','');
 await writeFile('dist/sitemap.xml','<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls.map(u=>'<url><loc>'+u+'</loc></url>').join('')+'</urlset>');
