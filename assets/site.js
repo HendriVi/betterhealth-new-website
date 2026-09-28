@@ -314,7 +314,7 @@ var U={
  build:["Building your model","Ihr Modell entsteht"],
  crumbs:[["Goal","Ziel"],["Signals","Signale"],["Pattern","Muster"]],
  q1:["What would you most like to improve?","Was möchten Sie am ehesten verbessern?"],
- q1s:["Choose one or two.","Wählen Sie eines oder zwei."],
+ q1s:["Choose your main priority. Selecting an answer takes you to the next question.","Wählen Sie Ihr wichtigstes Ziel. Mit Ihrer Auswahl gelangen Sie zur nächsten Frage."],
  q1t:["And in your own words: if this were meaningfully better in a year, what would be different?",
       "Und in Ihren eigenen Worten: Wenn das in einem Jahr deutlich besser wäre, was wäre dann anders?"],
  q1th:["One or two lines is enough. Something you would be able to do again, or stop having to work around.",
@@ -324,7 +324,7 @@ var U={
  q2:["What are you noticing?","Was nehmen Sie wahr?"],
  q2s:["Pick whatever applies. Three or four is plenty.","Wählen Sie, was zutrifft. Drei oder vier genügen."],
  q3:["When is it most obvious?","Wann ist es am deutlichsten?"],
- q3s:["And roughly how long has it been like this?","Und wie lange ist das ungefähr schon so?"],
+ q3s:["And roughly how long has it been like this? Select an answer to see your roadmap.","Und wie lange ist das ungefähr schon so? Wählen Sie eine Antwort, um Ihre Roadmap zu sehen."],
  see:["See what this points at","Zeigen, worauf das deutet"],
  resTitle:["What your answers point at","Worauf Ihre Antworten deuten"],
  resSub:["Several systems can produce the same experience. These three are worth looking at first.",
@@ -361,7 +361,7 @@ function crumbs(){
 function frame(inner,o){
  o=o||{};
  var nav='<div class="wiz-nav">'+(o.back===false?"":'<button class="btn btn-ghost" type="button" data-act="back">'+esc(t(U.back))+"</button>")+
-  '<button class="btn btn-primary" type="button" data-act="next">'+esc(t(o.label||U.next))+"</button>"+
+  (o.auto?'':'<button class="btn btn-primary" type="button" data-act="next">'+esc(t(o.label||U.next))+"</button>")+
   (o.count?'<span class="count">'+esc(o.count)+"</span>":"")+"</div>";
  mount.innerHTML='<div class="wiz-bar"><p class="tag">'+esc(t(U.build))+"</p>"+crumbs()+"</div>"+
   '<div class="wiz-step">'+inner+"</div>"+nav;
@@ -373,19 +373,27 @@ function scrIntro(){
   '<h3 class="wiz-q">'+esc(t(U.title))+'</h3><p class="wiz-sub">'+esc(t(U.intro))+"</p>"+
   '<button class="btn btn-primary" type="button" data-act="next">'+esc(t(U.start))+"</button></div>";
 }
+function goalNote(){
+ return '<div class="grp" style="margin-top:30px"><h4>'+esc(t(U.q1t))+'</h4>'+
+ '<div class="f" style="margin:0"><textarea id="wGoalText" rows="3">'+esc(S.goalText)+'</textarea>'+
+ '<p class="hint">'+esc(t(U.q1th))+"</p></div></div>";
+}
 function scr1(){
  frame(head(t(U.q1),t(U.q1s))+'<div class="cards">'+
-  GOALS.map(function(g){return card("goal",g[0],t([g[1],g[2]]),has(S.goals,g[0]),"checkbox");}).join("")+"</div>"+
-  '<div class="grp" style="margin-top:30px"><h4>'+esc(t(U.q1t))+'</h4>'+
-  '<div class="f" style="margin:0"><textarea id="wGoalText" rows="3">'+esc(S.goalText)+'</textarea>'+
-  '<p class="hint">'+esc(t(U.q1th))+"</p></div></div>",
-  {back:false,count:S.goals.length+"/2"});
- var ta=d.getElementById("wGoalText");
- if(ta) ta.addEventListener("input",function(){S.goalText=ta.value;});
+ GOALS.map(function(g){return card("goal",g[0],t([g[1],g[2]]),has(S.goals,g[0]),"radio");}).join("")+"</div>",{auto:true});
 }
 function scr2(){
  frame(head(t(U.q2),t(U.q2s))+'<div class="chipset">'+
-  SIG.map(function(x){return chip("sig",x[0],t([x[1],x[2]]),has(S.sig,x[0]));}).join("")+"</div>");
+ SIG.map(function(x){return chip("sig",x[0],t([x[1],x[2]]),has(S.sig,x[0]));}).join("")+"</div>"+goalNote());
+ var ta=d.getElementById("wGoalText");
+ ta.addEventListener("input",function(){S.goalText=ta.value;});
+}
+function moveTo(next){
+ step=next;render();
+ var heading=mount.querySelector(".wiz-q, h3");
+ if(heading){heading.setAttribute("tabindex","-1");heading.focus({preventScroll:true});}
+ mount.style.scrollMarginTop="96px";
+ mount.scrollIntoView({block:"start",behavior:"instant"});
 }
 function scr3(){
  frame(head(t(U.q3))+'<div class="chipset">'+
@@ -472,12 +480,15 @@ mount.addEventListener("change",function(e){
   if(on&&i<0){ if(lim&&arr.length>=lim){e.target.checked=false;return;} arr.push(v); }
   if(!on&&i>-1) arr.splice(i,1);
  }
- if(n==="goal"){ multi(S.goals,2); scr1(); }
+ if(n==="goal"){ return; }
  else if(n==="sig"){ multi(S.sig); }
  else if(n==="when"){ multi(S.when); }
  else if(n==="long"){ S.long=v; }
 });
 mount.addEventListener("click",function(e){
+ var choice=e.target.closest('input[type="radio"]');
+ if(choice&&choice.name==="goal"){S.goals=[choice.value];moveTo(2);return;}
+ if(choice&&choice.name==="long"){S.long=choice.value;moveTo(4);return;}
  var b=e.target.closest("[data-act]"); if(!b) return;
  var a=b.dataset.act;
  if(a==="carry"){
@@ -495,12 +506,12 @@ mount.addEventListener("click",function(e){
   setTimeout(function(){ var n=d.getElementById("f-name"); if(n) n.focus(); },700);
   return;
  }
- if(a==="restart"){ S={goals:[],sig:[],when:[],long:"",goalText:""}; aiText=""; step=0; return render(); }
- if(a==="back"){ step=Math.max(0,step-1); return render(); }
+ if(a==="restart"){ S={goals:[],sig:[],when:[],long:"",goalText:""}; aiText=""; return moveTo(0); }
+ if(a==="back"){ return moveTo(Math.max(0,step-1)); }
  if(a==="next"){
   if(step===1&&!S.goals.length) return;
   if(step===2&&!S.sig.length) return;
-  step++; render();
+  moveTo(step+1);
  }
 });
 render();
